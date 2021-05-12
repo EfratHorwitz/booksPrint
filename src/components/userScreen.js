@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 
+
 function UserScreen() {
     return (
         <div>
@@ -18,7 +19,7 @@ function UserScreen() {
             <div>
                 <label>
                     :לצפייה בהזמנה בחר הזמנה רצויה
-                </label><br/><br/>
+                </label><br /><br />
                 <FormControl variant="outlined">
                     <InputLabel id="demo-simple-select-outlined-label">Order</InputLabel>
                     <Select
@@ -35,7 +36,10 @@ function UserScreen() {
                         <MenuItem value={20}>Twenty</MenuItem>
                         <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
-                </FormControl>
+                </FormControl>  
+            </div> 
+            <div>
+            :עידכונים
             </div>
         </div>
     );
