@@ -7,14 +7,19 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
+import { useHistory } from "react-router-dom"
 
 
 function UserScreen() {
+    let history = useHistory();
+    
+    function addNewOrder() {
+        history.push("/newOrder");
+    }
     return (
         <div>
             <div>
-                <Button variant="contained" color="primary" size="large">הזמנה חדשה</Button>
+                <Button variant="contained" color="primary" size="large" onClick={() => addNewOrder()}>הזמנה חדשה</Button>
             </div><br></br>
             <div>
                 <label>
@@ -36,10 +41,10 @@ function UserScreen() {
                         <MenuItem value={20}>Twenty</MenuItem>
                         <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
-                </FormControl>  
-            </div> 
+                </FormControl>
+            </div>
             <div>
-            :עידכונים
+                :עידכונים
             </div>
         </div>
     );

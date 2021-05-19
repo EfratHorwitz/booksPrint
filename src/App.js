@@ -14,7 +14,7 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route path="/">
+          <Route path="/" exact>
             <Login />
           </Route>
           <Route path="/userScreen">
