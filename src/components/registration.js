@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom"
 
 function Registration() {
+    
+    const [userToInsert, setUserToInsert] = useState;
+
+    // useEffect(()=>{
+    //     setUserToInsert()
+    // },[])
+
+    // function loginNewUser() {
+    //     fetch("http://localhost:3000/login")
+    //         .then((res) => res.json())
+    //         .then((data) => console.log(data))
+    //         .catch((err) => { console.log("error: ", err) });
+    // }
+
+    
+
     return (
         <div>
             <div>
                 <label>:משתמש קיים</label><br /><br />
-                <TextField id="outlined-basic" label=":שם משתמש" variant="outlined" size="small" /><br /><br />
+                <TextField id="outlined-basic" label=":שם משתמש" variant="outlined" size="small" onChange=""/><br /><br />
                 <TextField id="outlined-basic" label=":סיסמא" variant="outlined" size="small" /><br /><br />
             </div><br />
             <div>
