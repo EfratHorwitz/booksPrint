@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom"
 
-function UserScreenSoft(){
-return(
-    <div>
+function UserScreenSoft() {
+    
+    let history = useHistory();
+
+    function endChoose() {
+        history.push("/registration");
+    }
+    
+    return (
         <div>
+            <div>
                 <label>
                     :גודל
                 </label><br /><br />
@@ -51,7 +59,7 @@ return(
                 </FormControl>
             </div>
             <label>:מספר עמודים</label>
-            <input type="number"/>
+            <input type="number" />
             <div>
                 <label>
                     ":סוג נייר"
@@ -95,11 +103,12 @@ return(
                     </Select>
                 </FormControl>
             </div>
-            <label>:כמות</label>
-            <div><input type="number"/>
+            <div>
+                <label>:כמות</label>
+                <input type="number" />
             </div>
-            
-    </div>
-)
+            <button variant="contained" color="primary" size="large" onClick={endChoose}> סיום</button>
+        </div>
+    )
 }
 export default UserScreenSoft;

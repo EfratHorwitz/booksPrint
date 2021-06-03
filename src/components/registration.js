@@ -5,6 +5,13 @@ import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom"
 
 function Registration() {
+
+    let history = useHistory();
+    function registertion() {
+        history.push("/completeOrder");
+    }
+
+
     return (
         <div>
             <div>
@@ -26,11 +33,11 @@ function Registration() {
                 {/* // onClick={() => loginNewUser()} */}
             </div>
             <div>
-                <Button variant="contained" color="primary" size="large" >ביצוע הזמנת משתמש קיים</Button>
+                <Button variant="contained" color="primary" size="large" >קבלת הצעת מחיר במייל</Button>
                 {/* onClick={() => loginExistingUser()} */}
             </div>
             <div>
-                <Button variant="contained" color="primary" size="large" >קבלת הצעת מחיר במייל</Button>
+                <Button variant="contained" color="primary" size="large" onClick={registertion}>ביצוע הזמנת משתמש קיים</Button>
                 {/* onClick={() => loginExistingUser()} */}
             </div>
         </div>
