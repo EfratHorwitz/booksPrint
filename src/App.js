@@ -1,24 +1,25 @@
 import React from 'react';
-import Login from './components/login';
-import UserScreen from './components/userScreen';
-import ManagerScreen from './components/managerScreen';
-import NewOrder from './components/newOrder';
+import Home from './components/home';
+import UserScreenHard from './components/userScreenHard';
+import UserScreenSoft from './components/userScreenSoft';
+import CompleteOrder from './components/completeOrder';
+import Registration from './components/registration';
 import { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Switch
 } from "react-router-dom"
-import Home from './components/home';
+
 
 function App() {
 
-useEffect(()=>{
-  fetch("http://localhost:3000/login?user=user1")
-  .then((res)=> res.json())
-  .then((data)=>console.log(data))
-  .catch((err)=> {console.log("error: ",err)});
-},[])
+  useEffect(() => {
+    fetch("http://localhost:3000/login?user=user1")
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => { console.log("error: ", err) });
+  }, [])
 
   return (
     <Router>
@@ -27,14 +28,17 @@ useEffect(()=>{
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/userScreen">
-            <UserScreen />
+          <Route path="/userScreenHard">
+            <UserScreenHard />
           </Route>
-          <Route path="/managerScreen">
-            <ManagerScreen />
+          <Route path="/userScreenSoft">
+            <UserScreenSoft />
           </Route>
-          <Route path="/newOrder">
-            <NewOrder />
+          <Route path="/registration">
+            <Registration />
+          </Route>
+          <Route path="/completeOrder">
+            <CompleteOrder />
           </Route>
         </Switch>
       </div>

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom"
 
 function UserScreenHard() {
-
-
     return (
         <div>
             <div>
@@ -52,7 +50,8 @@ function UserScreenHard() {
                     </Select>
                 </FormControl>
             </div>
-            <input type="number">מספר עמודים</input>
+            <label>מספר עמודים</label>
+            <input type="number"/>
             <div>
                 <label>
                     ":סוג נייר"
@@ -96,7 +95,10 @@ function UserScreenHard() {
                     </Select>
                 </FormControl>
             </div>
-            <input type="number">כמות</input>
+            <div>
+                <label>:כמות</label>
+            <input type="number"/>
+            </div>
         </div>
     )
 }

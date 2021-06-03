@@ -22,13 +22,16 @@ function Registration() {
                 <TextField id="outlined-basic" label=":סיסמא" variant="outlined" size="small" /><br /><br />
             </div>
             <div>
-                <Button variant="contained" color="primary" size="large" onClick={() => loginNewUser()}>רישום</Button>
+                <Button variant="contained" color="primary" size="large" >רישום</Button>
+                {/* // onClick={() => loginNewUser()} */}
             </div>
             <div>
-                <Button variant="contained" color="primary" size="large" onClick={() => loginExistingUser()}>ביצוע הזמנת משתמש קיים</Button>
+                <Button variant="contained" color="primary" size="large" >ביצוע הזמנת משתמש קיים</Button>
+                {/* onClick={() => loginExistingUser()} */}
             </div>
             <div>
-                <Button variant="contained" color="primary" size="large" onClick={() => loginExistingUser()}>קבלת הצעת מחיר במייל</Button>
+                <Button variant="contained" color="primary" size="large" >קבלת הצעת מחיר במייל</Button>
+                {/* onClick={() => loginExistingUser()} */}
             </div>
         </div>
     )
