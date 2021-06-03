@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom"
 
 function UserScreenHard() {
+
+    let history = useHistory();
+
+    function endChoose() {
+        history.push("/registration");
+    }
+
     return (
         <div>
             <div>
@@ -99,6 +107,7 @@ function UserScreenHard() {
                 <label>:כמות</label>
             <input type="number"/>
             </div>
+            <button variant="contained" color="primary" size="large" onClick={endChoose}>סיום</button>
         </div>
     )
 }

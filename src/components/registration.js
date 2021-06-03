@@ -5,27 +5,26 @@ import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom"
 
 function Registration() {
+
     
     const [userToInsert, setUserToInsert] = useState;
 
-    // useEffect(()=>{
-    //     setUserToInsert()
-    // },[])
-
-    // function loginNewUser() {
-    //     fetch("http://localhost:3000/login")
-    //         .then((res) => res.json())
-    //         .then((data) => console.log(data))
-    //         .catch((err) => { console.log("error: ", err) });
-    // }
 
     
+
+
+    let history = useHistory();
+    function registertion() {
+        history.push("/completeOrder");
+    }
+
+
 
     return (
         <div>
             <div>
                 <label>:משתמש קיים</label><br /><br />
-                <TextField id="outlined-basic" label=":שם משתמש" variant="outlined" size="small" onChange=""/><br /><br />
+                <TextField id="outlined-basic" label=":שם משתמש" variant="outlined" size="small"/><br /><br />
                 <TextField id="outlined-basic" label=":סיסמא" variant="outlined" size="small" /><br /><br />
             </div><br />
             <div>
@@ -42,11 +41,11 @@ function Registration() {
                 {/* // onClick={() => loginNewUser()} */}
             </div>
             <div>
-                <Button variant="contained" color="primary" size="large" >ביצוע הזמנת משתמש קיים</Button>
+                <Button variant="contained" color="primary" size="large" >קבלת הצעת מחיר במייל</Button>
                 {/* onClick={() => loginExistingUser()} */}
             </div>
             <div>
-                <Button variant="contained" color="primary" size="large" >קבלת הצעת מחיר במייל</Button>
+                <Button variant="contained" color="primary" size="large" onClick={registertion}>ביצוע הזמנת משתמש קיים</Button>
                 {/* onClick={() => loginExistingUser()} */}
             </div>
         </div>
