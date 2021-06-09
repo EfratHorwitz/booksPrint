@@ -3,9 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
+import Order from '../order'
 
 function UserScreenSoft() {
+
+    const [order, setOrder] = useState(new Order());
     
     let history = useHistory();
 
@@ -15,6 +18,7 @@ function UserScreenSoft() {
     
     return (
         <div>
+
             <div>
                 <label>
                     :גודל
@@ -37,6 +41,7 @@ function UserScreenSoft() {
                     </Select>
                 </FormControl>
             </div>
+
             <div>
                 <label>
                     :פורמט
@@ -58,8 +63,11 @@ function UserScreenSoft() {
                     </Select>
                 </FormControl>
             </div>
+
             <label>:מספר עמודים</label>
+
             <input type="number" />
+
             <div>
                 <label>
                     ":סוג נייר"
@@ -82,6 +90,7 @@ function UserScreenSoft() {
                     </Select>
                 </FormControl>
             </div>
+
             <div>
                 <label>
                     :צבע הדפסה
@@ -103,11 +112,14 @@ function UserScreenSoft() {
                     </Select>
                 </FormControl>
             </div>
+
             <div>
                 <label>:כמות</label>
                 <input type="number" />
             </div>
-            <button variant="contained" color="primary" size="large" onClick={endChoose}> סיום</button>
+
+            <Button variant="contained" color="primary" size="large" onClick={endChoose}> סיום</Button>
+
         </div>
     )
 }

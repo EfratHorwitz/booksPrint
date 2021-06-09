@@ -2,25 +2,27 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 
 function Home() {
-
     let history = useHistory();
+    
+    function manager() {
+        history.push("/managerScreen");
+    }
+    function getBid() {
+        history.push("/printOptions");
+    }
+    return (
+        <div>
+            <label>
+                ברוכים הבאים לאש הדפסות -
+                האתר שיעשה לך את זה בקלות
+            </label>
+            <Button variant="contained" color="primary" size="large" onClick={manager}>כניסת מנהל</Button>
+            <Button variant="contained" color="primary" size="large" onClick={getBid}>לקבלת הצעת מחיר</Button>
+        </div>
+    )
 
-    function soft() {
-        history.push("/userScreenSoft");
-    }
-    function hard() {
-        history.push("/userScreenHard");
-    }
-        return (
-            <div>
-                <label>?מה תרצה להדפיס</label><br></br>
-                <Button variant="contained" color="primary" size="large" onClick={soft}>ספר כריכה רכה</Button>
-                <Button variant="contained" color="primary" size="large" onClick={hard}>ספר כריכה קשה</Button><br></br>
-                <Button variant="contained" color="primary" size="large" >כניסת מנהל</Button>
-            </div>
-        )
-    }
-    export default Home;
+}
+export default Home;

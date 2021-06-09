@@ -59,7 +59,7 @@ function UserScreenHard() {
                 </FormControl>
             </div>
             <label>מספר עמודים</label>
-            <input type="number"/>
+            <input type="number" />
             <div>
                 <label>
                     ":סוג נייר"
@@ -105,10 +105,13 @@ function UserScreenHard() {
             </div>
             <div>
                 <label>:כמות</label>
-            <input type="number"/>
+                <input type="number" />
             </div>
-            <button variant="contained" color="primary" size="large" onClick={endChoose}>סיום</button>
+            <Button variant="contained" color="primary" size="large">המשך</Button>
+
         </div>
+
+
     )
 }
 export default UserScreenHard;

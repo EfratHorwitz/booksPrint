@@ -8,23 +8,32 @@ function Registration() {
 
     
     const [userToInsert, setUserToInsert] = useState;
-
-
-    
-
+    const [book, setBook] = useState;
 
     let history = useHistory();
+
     function registertion() {
         history.push("/completeOrder");
     }
 
+    function loginNewUser(user){
+        fetch("http://localhost:3000/login?user=user}")
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => { console.log("error: ", err) });
+
+    }
+
+   const setParam = (key,val) => {
+        setBook({...book, [key]: val})
+    }
 
 
     return (
         <div>
             <div>
                 <label>:משתמש קיים</label><br /><br />
-                <TextField id="outlined-basic" label=":שם משתמש" variant="outlined" size="small"/><br /><br />
+                <TextField id="outlined-basic" label=":שם משתמש" variant="outlined" size="small" onChange={(e) => setParam("userName", e.target.value)}/><br /><br />
                 <TextField id="outlined-basic" label=":סיסמא" variant="outlined" size="small" /><br /><br />
             </div><br />
             <div>
@@ -37,8 +46,8 @@ function Registration() {
                 <TextField id="outlined-basic" label=":סיסמא" variant="outlined" size="small" /><br /><br />
             </div>
             <div>
-                <Button variant="contained" color="primary" size="large" >רישום</Button>
-                {/* // onClick={() => loginNewUser()} */}
+                <Button variant="contained" color="primary" size="large" onClick={() => loginNewUser()} >רישום</Button>
+                 
             </div>
             <div>
                 <Button variant="contained" color="primary" size="large" >קבלת הצעת מחיר במייל</Button>

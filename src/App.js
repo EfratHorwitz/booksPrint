@@ -4,6 +4,10 @@ import UserScreenHard from './components/userScreenHard';
 import UserScreenSoft from './components/userScreenSoft';
 import CompleteOrder from './components/completeOrder';
 import Registration from './components/registration';
+import ManagerScreen from './components/managerScreen';
+import OrderDetails from './components/orderDetails';
+import PrintOptions from './components/printOptions';
+
 import { useEffect } from "react";
 import {
   BrowserRouter as Router,
@@ -28,6 +32,9 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
+          <Route path="/managerScreen">
+            <ManagerScreen />
+          </Route>
           <Route path="/userScreenHard">
             <UserScreenHard />
           </Route>
@@ -39,6 +46,9 @@ function App() {
           </Route>
           <Route path="/completeOrder">
             <CompleteOrder />
+          </Route>
+          <Route path="/printOptions">
+            <PrintOptions />
           </Route>
         </Switch>
       </div>
