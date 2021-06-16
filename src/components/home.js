@@ -15,10 +15,11 @@ function Home() {
     }
     return (
         <div>
-            <label>
+            <label >
                 ברוכים הבאים לאש הדפסות -
                 האתר שיעשה לך את זה בקלות
             </label>
+            <br/><br/>
             <Button variant="contained" color="primary" size="large" onClick={manager}>כניסת מנהל</Button>
             <Button variant="contained" color="primary" size="large" onClick={getBid}>לקבלת הצעת מחיר</Button>
         </div>

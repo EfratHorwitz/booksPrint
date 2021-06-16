@@ -3,15 +3,23 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
+import saveOrderDetails from '../actions/saveOrderDetails';
 
 function UserScreenHard() {
 
-    let history = useHistory();
+    const history = useHistory();
+    const[order, setOrder] = useState();
+
 
     function endChoose() {
+        props.
         history.push("/registration");
     }
+
+    const setParam = (key,val) => {
+        setOrder({...order, [key]: val})
+        }
 
     return (
         <div>
@@ -19,7 +27,7 @@ function UserScreenHard() {
                 <label>
                     :גודל
                 </label><br /><br />
-                <FormControl variant="outlined">
+                <FormControl variant="outlined" onChange={(e) => setParam("size", e.target.value)}>
                     <InputLabel id="demo-simple-select-outlined-label">גודל הספר</InputLabel>
                     <Select
                         labelId="demo-simple-select-outlined-label"
@@ -41,7 +49,7 @@ function UserScreenHard() {
                 <label>
                     :פורמט
                 </label><br /><br />
-                <FormControl variant="outlined">
+                <FormControl variant="outlined" onChange={(e) => setParam("format", e.target.value)}>
                     <InputLabel id="demo-simple-select-outlined-label">פורמט</InputLabel>
                     <Select
                         labelId="demo-simple-select-outlined-label"
@@ -59,12 +67,12 @@ function UserScreenHard() {
                 </FormControl>
             </div>
             <label>מספר עמודים</label>
-            <input type="number" />
+            <input type="number" onChange={(e) => setParam("pagesNum", e.target.value)}/>
             <div>
                 <label>
                     ":סוג נייר"
                 </label><br /><br />
-                <FormControl variant="outlined">
+                <FormControl variant="outlined" onChange={(e) => setParam("paperType", e.target.value)}>
                     <InputLabel id="demo-simple-select-outlined-label">:סוג נייר</InputLabel>
                     <Select
                         labelId="demo-simple-select-outlined-label"
@@ -86,7 +94,7 @@ function UserScreenHard() {
                 <label>
                     :צבע הדפסה
                 </label><br /><br />
-                <FormControl variant="outlined">
+                <FormControl variant="outlined" onChange={(e) => setParam("color", e.target.value)}>
                     <InputLabel id="demo-simple-select-outlined-label">:צבע הדפסה</InputLabel>
                     <Select
                         labelId="demo-simple-select-outlined-label"
@@ -105,16 +113,25 @@ function UserScreenHard() {
             </div>
             <div>
                 <label>:כמות</label>
-                <input type="number" />
+                <input type="number" onChange={(e) => setParam("quantity", e.target.value)}/>
             </div>
-            <Button variant="contained" color="primary" size="large">המשך</Button>
+            <Button variant="contained" color="primary" size="large" onClick={endChoose}>המשך</Button>
 
         </div>
 
 
     )
 }
-export default UserScreenHard;
+
+const mapStateToProps = (state) => {
+    return {
+        order: state.order
+    };
+};
+
+export default connect(mapStateToProps, { saveOrderDetails })(UserScreenHard);
+
+// export default UserScreenHard;
 
 // 1. גודל (כאן תבוא רשימה נגללת עם כל אפשרויות הגדלים המצויים)
 // 2. פורמט (רגיל/אלבומי)

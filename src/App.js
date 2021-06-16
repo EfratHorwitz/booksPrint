@@ -7,6 +7,7 @@ import Registration from './components/registration';
 import ManagerScreen from './components/managerScreen';
 import OrderDetails from './components/orderDetails';
 import PrintOptions from './components/printOptions';
+import Trial from './components/trial'
 
 import { useEffect } from "react";
 import {
@@ -26,6 +27,9 @@ function App() {
   }, [])
 
   return (
+//     <div>
+// <Trial/>
+//     </div>
     <Router>
       <div>
         <Switch>
