@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom";
+import {connect} from "react-redux"
 
-
-function Registration() {
+function Registration(props) {
 
     
     const [userToInsert, setUserToInsert] = useState();
@@ -66,7 +66,7 @@ function Registration() {
 
 const mapStateToProps = (state) => {
     return {
-        tmpOrder = state.tmpOrder
+        tmpOrder: state.tmpOrder
     };
 };
 export default connect(mapStateToProps, {  })(Registration);

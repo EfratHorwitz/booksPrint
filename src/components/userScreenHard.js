@@ -1,137 +1,66 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import React from 'react';
+import { connect } from 'react-redux'
+// import { makeStyles } from '@material-ui/core/styles';
+// import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom";
-import saveOrderDetails from '../actions/saveOrderDetails';
+import { saveOrderDetails } from '../actions';
+import BookSize from './bookSize';
+import BookFormat from './bookFormat';
+import NumPages from './numPages';
+import PrintColor from './printColor';
+import NumOfBooks from './numOfBooks';
+import PaperType from './paperType';
 
 function UserScreenHard() {
 
     const history = useHistory();
-    const[order, setOrder] = useState();
+    // const [order, setOrder] = useState();
 
 
     function endChoose() {
-        props.
         history.push("/registration");
     }
 
-    const setParam = (key,val) => {
-        setOrder({...order, [key]: val})
-        }
+    // const setParam = (key, val) => {
+    //     setOrder({ ...order, [key]: val })
+    // }
 
     return (
         <div>
             <div>
-                <label>
-                    :גודל
-                </label><br /><br />
-                <FormControl variant="outlined" onChange={(e) => setParam("size", e.target.value)}>
-                    <InputLabel id="demo-simple-select-outlined-label">גודל הספר</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-outlined-label"
-                        id="demo-simple-select-outlined"
-                        value={2}
-                        onChange={() => { }}
-                        label="Age"
-                    >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                </FormControl>
+                <BookSize/>
             </div>
             <div>
-                <label>
-                    :פורמט
-                </label><br /><br />
-                <FormControl variant="outlined" onChange={(e) => setParam("format", e.target.value)}>
-                    <InputLabel id="demo-simple-select-outlined-label">פורמט</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-outlined-label"
-                        id="demo-simple-select-outlined"
-                        value={2}
-                        onChange={() => { }}
-                        label="Age"
-                    >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>רגיל</MenuItem>
-                        <MenuItem value={20}>אלבומי</MenuItem>
-                    </Select>
-                </FormControl>
-            </div>
-            <label>מספר עמודים</label>
-            <input type="number" onChange={(e) => setParam("pagesNum", e.target.value)}/>
-            <div>
-                <label>
-                    ":סוג נייר"
-                </label><br /><br />
-                <FormControl variant="outlined" onChange={(e) => setParam("paperType", e.target.value)}>
-                    <InputLabel id="demo-simple-select-outlined-label">:סוג נייר</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-outlined-label"
-                        id="demo-simple-select-outlined"
-                        value={2}
-                        onChange={() => { }}
-                        label="Age"
-                    >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                </FormControl>
+                <BookFormat/>
             </div>
             <div>
-                <label>
-                    :צבע הדפסה
-                </label><br /><br />
-                <FormControl variant="outlined" onChange={(e) => setParam("color", e.target.value)}>
-                    <InputLabel id="demo-simple-select-outlined-label">:צבע הדפסה</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-outlined-label"
-                        id="demo-simple-select-outlined"
-                        value={2}
-                        onChange={() => { }}
-                        label="Age"
-                    >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={10}>שחור לבן</MenuItem>
-                        <MenuItem value={20}>צבעוני</MenuItem>
-                    </Select>
-                </FormControl>
+                <NumPages/>
             </div>
             <div>
-                <label>:כמות</label>
-                <input type="number" onChange={(e) => setParam("quantity", e.target.value)}/>
+                <PrintColor/>
+            </div>
+            <div>
+                <NumOfBooks/>
+            </div>
+            <div>
+                <PaperType/>
             </div>
             <Button variant="contained" color="primary" size="large" onClick={endChoose}>המשך</Button>
-
         </div>
-
-
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        order: state.order
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         order: state.order
+//     };
+// };
 
-export default connect(mapStateToProps, { saveOrderDetails })(UserScreenHard);
+// export default connect(mapStateToProps, { saveOrderDetails })(UserScreenHard);
 
-// export default UserScreenHard;
+export default UserScreenHard;
 
 // 1. גודל (כאן תבוא רשימה נגללת עם כל אפשרויות הגדלים המצויים)
 // 2. פורמט (רגיל/אלבומי)

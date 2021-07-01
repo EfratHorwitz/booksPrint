@@ -3,14 +3,14 @@ const initialState = {
     color: "",
     format: "",
     pagesNum: 0,
-    paperType:"",
+    paperType: "",
     quantity: 0
     //...
 }
 
-export const orderReducer = (state = initialState, action)=>{
-    if(action.type === "SAVE_ORDER"){
-        return {...state,...action.payload};
+export default (state = initialState, action) => {
+    if (action.type === "SAVE_ORDER") {
+        return { ...state, ...action.payload };
     }
     return state;
 }
