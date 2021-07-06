@@ -7,7 +7,7 @@ function NumOfBooks() {
     return (
         <div>
             <label>:כמות</label>
-            <input  type="number" min="10" value="10" step="5" onChange={(e) => saveOrderDetails({"quantity": e.target.value})} />
+            <input  type="number" min="10" step="5" onChange={(e) => saveOrderDetails({"quantity": e.target.value})} />
         </div>
     )
 

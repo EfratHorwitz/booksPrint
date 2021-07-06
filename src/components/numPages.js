@@ -7,7 +7,7 @@ function NumPages(){
     return(
         <div>
             <label>:מספר עמודים</label>
-            <input type="number" onChange={(e) => saveOrderDetails({"pagesNum": e.target.value})} />
+            <input type="number" min="10" step="2" onChange={(e) => saveOrderDetails({"pagesNum": e.target.value})} />
             
         </div>
     )

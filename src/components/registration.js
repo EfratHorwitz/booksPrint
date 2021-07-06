@@ -29,7 +29,7 @@ function Registration(props) {
     }
 
    const setParam = (key,val) => {
-    setUserToInsert({...userToInsert, [key]: val})
+    // setUserToInsert({...userToInsert, [key]: val})
     }
 
 
@@ -64,9 +64,11 @@ function Registration(props) {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        tmpOrder: state.tmpOrder
-    };
-};
-export default connect(mapStateToProps, {  })(Registration);
+export default Registration;
+
+// const mapStateToProps = (state) => {
+//     return {
+//         tmpOrder: state.tmpOrder
+//     };
+// };
+// export default connect(mapStateToProps, {  })(Registration);
