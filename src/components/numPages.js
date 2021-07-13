@@ -14,9 +14,9 @@ function NumPages(){
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        orderNumPages: state.order.NumPages
-    };
-};
-export default connect(mapStateToProps, { saveOrderDetails })(NumPages);
+// const mapStateToProps = (state) => {
+//     return {
+//         orderNumPages: state.order.NumPages
+//     };
+// };
+export default connect(null, { saveOrderDetails })(NumPages);

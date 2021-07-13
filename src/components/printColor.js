@@ -31,9 +31,9 @@ function PrintColor() {
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        orderPrintColor: state.order.printColor
-    };
-};
-export default connect(mapStateToProps, { saveOrderDetails })(PrintColor);
+// const mapStateToProps = (state) => {
+//     return {
+//         orderPrintColor: state.order.printColor
+//     };
+// };
+export default connect(null, { saveOrderDetails })(PrintColor);

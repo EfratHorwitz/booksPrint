@@ -13,11 +13,11 @@ function NumOfBooks() {
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        orderNumOfBooks: state.order.numOfBooks
-    };
-};
-export default connect(mapStateToProps, { saveOrderDetails })(NumOfBooks);
+// const mapStateToProps = (state) => {
+//     return {
+//         orderNumOfBooks: state.order.numOfBooks
+//     };
+// };
+export default connect(null, { saveOrderDetails })(NumOfBooks);
 
 // export default NumOfBooks;

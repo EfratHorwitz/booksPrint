@@ -31,9 +31,9 @@ function BookFormat(){
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        orderBookFormat: state.order.bookFormat
-    };
-};
-export default connect(mapStateToProps, { saveOrderDetails })(BookFormat);
+// const mapStateToProps = (state) => {
+//     return {
+//         format: state.order.format
+//     };
+// };
+export default connect(null, { saveOrderDetails })(BookFormat);

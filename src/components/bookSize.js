@@ -32,9 +32,9 @@ function BookSize() {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        orderBookSize: state.order.bookSize
-    };
-};
-export default connect(mapStateToProps, { saveOrderDetails })(BookSize);
+// const mapStateToProps = (state) => {
+//     return {
+//         orderBookSize: state.order.bookSize
+//     };
+// };
+export default connect(null, { saveOrderDetails })(BookSize);

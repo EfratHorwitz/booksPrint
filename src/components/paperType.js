@@ -30,9 +30,9 @@ function PaperType() {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        orderPaperType: state.order.paperType
-    };
-};
-export default connect(mapStateToProps, { saveOrderDetails })(PaperType);
+// const mapStateToProps = (state) => {
+//     return {
+//         orderPaperType: state.order.paperType
+//     };
+// };
+export default connect(null, { saveOrderDetails })(PaperType);
