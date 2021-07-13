@@ -3,20 +3,20 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import { connect } from 'react-redux';
 
-function PrintColor() {
+function PrintColor(props) {
 
     return (
         <div>
             <label>
                 :צבע הדפסה
             </label><br /><br />
-            <FormControl variant="outlined" onChange={(e) => saveOrderDetails({ "color": e.target.value })}>
+            <FormControl variant="outlined" >
                 <InputLabel id="demo-simple-select-outlined-label">:צבע הדפסה</InputLabel>
                 <Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={2}
-                    onChange={() => { }}
+                    onChange={(e) => props.saveOrderDetails({ "color": e.target.value })}
                     label="Age"
                 >
                     <MenuItem value="">

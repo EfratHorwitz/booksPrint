@@ -12,8 +12,9 @@ function Registration(props) {
     const [tmpOrder, setTmpOrder] = useState();
     // const [book, setBook] = useState;
 
-    setTmpOrder(props.tmpOrder);
+    // setTmpOrder(props.tmpOrder);
 
+    console.log("props", props.tmpOrder);
     let history = useHistory();
 
     function registartion() {
@@ -64,11 +65,11 @@ function Registration(props) {
     )
 }
 
-export default Registration;
+// export default Registration;
 
-// const mapStateToProps = (state) => {
-//     return {
-//         tmpOrder: state.tmpOrder
-//     };
-// };
-// export default connect(mapStateToProps, {  })(Registration);
+const mapStateToProps = (state) => {
+    return {
+        tmpOrder: state.order
+    };
+};
+export default connect(mapStateToProps)(Registration);

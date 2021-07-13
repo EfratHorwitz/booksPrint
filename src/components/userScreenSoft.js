@@ -11,6 +11,7 @@ import NumPages from './numPages';
 import PaperType from './paperType';
 import PrintColor from './printColor';
 import NumOfBooks from './numOfBooks';
+import BindingTypeSoft from './bindingTypeSoft';
 
 
 function UserScreenSoft() {
@@ -49,9 +50,10 @@ function UserScreenSoft() {
             <div>
                 <NumOfBooks/>
             </div>
-
             <Button variant="contained" color="primary" size="large" onClick={endChoose}> סיום</Button>
-
+            <div>
+                <BindingTypeSoft/>
+            </div>
         </div>
     )
 }

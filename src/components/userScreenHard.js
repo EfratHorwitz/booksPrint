@@ -12,6 +12,7 @@ import NumPages from './numPages';
 import PrintColor from './printColor';
 import NumOfBooks from './numOfBooks';
 import PaperType from './paperType';
+import BindingTypeHard from './bindingTypeHard';
 
 function UserScreenHard() {
 
@@ -48,6 +49,9 @@ function UserScreenHard() {
                 <PaperType/>
             </div>
             <Button variant="contained" color="primary" size="large" onClick={endChoose}>המשך</Button>
+            <div>
+                <BindingTypeHard/>
+            </div>
         </div>
     )
 }

@@ -2,12 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { saveOrderDetails } from '../actions';
 
-function NumOfBooks() {
+function NumOfBooks(props) {
 
     return (
         <div>
             <label>:כמות</label>
-            <input  type="number" min="10" step="5" onChange={(e) => saveOrderDetails({"quantity": e.target.value})} />
+            <input  type="number" min="10" step="5" onChange={(e) => props.saveOrderDetails({"quantity": e.target.value})} />
         </div>
     )
 

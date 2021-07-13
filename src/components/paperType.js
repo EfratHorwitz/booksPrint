@@ -3,19 +3,19 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import { connect } from 'react-redux';
 
-function PaperType() {
+function PaperType(props) {
     return (
         <div>
             <label>
                 ":סוג נייר"
                 </label><br /><br />
-            <FormControl variant="outlined" onChange={(e) => saveOrderDetails({ "pagesNum": e.target.value })}>
+            <FormControl variant="outlined" >
                 <InputLabel id="demo-simple-select-outlined-label">:סוג נייר</InputLabel>
                 <Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={2}
-                    onChange={() => { }}
+                    onChange={(e) => props.saveOrderDetails({ "paperType": e.target.value })}
                     label="Age"
                 >
                     <MenuItem value="">
