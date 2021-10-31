@@ -10,6 +10,7 @@ import reducers from "./reducers"
 
 
 const store = createStore(reducers,applyMiddleware(thunk));
+window.store = store;
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

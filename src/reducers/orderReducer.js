@@ -9,7 +9,7 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-    console.log("ACTION", action);
+    // console.log("ACTION", action);
     if (action.type === "SAVE_ORDER") {
         return { ...state, ...action.payload };
     }

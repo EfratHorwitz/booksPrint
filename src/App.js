@@ -2,12 +2,16 @@ import React from 'react';
 import Home from './components/home';
 import UserScreenHard from './components/userScreenHard';
 import UserScreenSoft from './components/userScreenSoft';
+import UserScreenStaples from './components/userScreenStaples';
 import CompleteOrder from './components/completeOrder';
 import Registration from './components/registration';
 import ManagerScreen from './components/managerScreen';
+import TmpAfterReg from './components/tmpAfterReg'
+import UserProfile from './components/userProfile'
 import OrderDetails from './components/orderDetails';
 import PrintOptions from './components/printOptions';
-import Trial from './components/trial'
+import Trial from './components/trial';
+
 
 import { useEffect } from "react";
 import {
@@ -20,10 +24,11 @@ import {
 function App() {
 
   useEffect(() => {
-    fetch("http://localhost:3000/login?user=user1")
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => { console.log("error: ", err) });
+    // fetch("http://localhost:4000/user?user=user1")
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data))
+    //   .catch((err) => { console.log("error: ", err) });
+      // localStorage.setItem('language', 'JavaScript');
   }, [])
 
   return (
@@ -35,7 +40,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Home />
-          </Route>
+          </Route>          
           <Route path="/managerScreen">
             <ManagerScreen />
           </Route>
@@ -53,6 +58,15 @@ function App() {
           </Route>
           <Route path="/printOptions">
             <PrintOptions />
+          </Route>
+          <Route path="/userScreenStaples">
+            <UserScreenStaples />
+          </Route>
+          <Route path="/tmpAfterReg" exact>
+            <TmpAfterReg />
+          </Route>
+          <Route path="/userProfile">
+            <UserProfile />
           </Route>
         </Switch>
       </div>

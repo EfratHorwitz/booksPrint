@@ -14,7 +14,7 @@ import NumOfBooks from './numOfBooks';
 import BindingTypeSoft from './bindingTypeSoft';
 
 
-function UserScreenSoft() {
+function UserScreenStaples() {
 
     // const [order, setOrder] = useState(new Order());
     
@@ -26,6 +26,7 @@ function UserScreenSoft() {
             else(
                 history.push("/registration")
             );
+        
     }
     
     return (
@@ -54,14 +55,16 @@ function UserScreenSoft() {
             <div>
                 <NumOfBooks/>
             </div>
-            <Button variant="contained" color="primary" size="large" onClick={endChoose}> סיום</Button>
+
             <div>
                 <BindingTypeSoft/>
             </div>
 
-            <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a>
+            <Button variant="contained" color="primary" size="large" onClick={endChoose}> סיום</Button>
+<a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a>
+            
             
         </div>
     )
 }
-export default UserScreenSoft;
+export default UserScreenStaples;

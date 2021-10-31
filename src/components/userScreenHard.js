@@ -21,7 +21,12 @@ function UserScreenHard() {
 
 
     function endChoose() {
-        history.push("/registration");
+        debugger;
+        if(localStorage.getItem('token') != null)
+            history.push("/tmpAfterReg");
+            else(
+                history.push("/registration")
+            );
     }
 
     // const setParam = (key, val) => {
@@ -52,6 +57,9 @@ function UserScreenHard() {
             <div>
                 <BindingTypeHard/>
             </div>
+
+            <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a>
+            
         </div>
     )
 }

@@ -3,34 +3,41 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom";
-import {connect} from "react-redux"
+import {connect} from "react-redux";
+import {saveUserDetails} from "../actions/saveUserDetails";
+import axios from "axios";
 
 function Registration(props) {
 
     
-    const [userToInsert, setUserToInsert] = useState();
+    const [userToInsert, setUserToInsert] = useState({});
     const [tmpOrder, setTmpOrder] = useState();
     // const [book, setBook] = useState;
 
     // setTmpOrder(props.tmpOrder);
 
-    console.log("props", props.tmpOrder);
+    // console.log("props", props.tmpOrder);
     let history = useHistory();
 
-    function registartion() {
+    function registration() {
         history.push("/completeOrder");
     }
 
     function loginNewUser(user){
-        fetch("http://localhost:3000/login?user=user}")
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+        debugger;
+        axios.post("http://localhost:4000/user", userToInsert)
+    //   .then((res) => res.json())
+    //   .then((res) => {debugger; saveUserDetails(res.data)})
+      .then((res)=> {debugger; console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token))})
+    //   .then((res)=> {debugger; console.log(res.data.token)})
+    //   .then((res)=> {debugger; localStorage.setItem('token', JSON.stringify(res.data.token))})
       .catch((err) => { console.log("error: ", err) });
 
     }
+    // localStorage.setItem('itemsArray', JSON.stringify(oldItems));
 
    const setParam = (key,val) => {
-    // setUserToInsert({...userToInsert, [key]: val})
+    setUserToInsert({...userToInsert, [key]: val})
     }
 
 
@@ -41,24 +48,37 @@ function Registration(props) {
                 <TextField id="outlined-basic" label=":שם משתמש" variant="outlined" size="small" onChange={(e) => setParam("userName", e.target.value)}/><br /><br />
                 <TextField id="outlined-basic" label=":סיסמא" variant="outlined" size="small" onChange={(e) => setParam("password", e.target.value)}/><br /><br />
             </div><br /> */}
-            <div>
-                <label>:משתמש חדש</label><br />
-                <TextField id="outlined-basic" label=":שם פרטי" variant="outlined" size="small" onChange={(e) => setParam("firstName", e.target.value)}/><br /><br />
-                <TextField id="outlined-basic" label=":שם משפחה" variant="outlined" size="small" onChange={(e) => setParam("lastName", e.target.value)}/><br /><br />
-                <TextField id="outlined-basic" label=":מספר טלפון" variant="outlined" size="small" onChange={(e) => setParam("phone", e.target.value)}/><br /><br />
-                <TextField id="outlined-basic" label=":כתובת מייל" variant="outlined" size="small" onChange={(e) => setParam("email", e.target.value)}/><br /><br />
-                <TextField id="outlined-basic" label=":שם משתמש" variant="outlined" size="small" onChange={(e) => setParam("userName", e.target.value)}/><br /><br />
-                <TextField id="outlined-basic" label=":סיסמא" variant="outlined" size="small" onChange={(e) => setParam("password", e.target.value)}/><br /><br />
-            </div>
-            <div>
+            
+            {/* <div> */}
+                {/* <label>:משתמש חדש</label><br />
+                {/* <TextField id="outlined-basic" label=":שם פרטי" variant="outlined" size="small" onChange={(e) => setParam("firstName", e.target.value)}/><br /><br /> */}
+                {/* <TextField id="outlined-basic" label=":שם מלא" variant="outlined" size="small" onChange={(e) => setParam("fullname", e.target.value)}/><br /><br /> */}
+                {/* <TextField id="outlined-basic" label=":שם משתמש" variant="outlined" size="small" onChange={(e) => setParam("userName", e.target.value)}/><br /><br /> */}
+                {/* <TextField id="outlined-basic" label=":סיסמא" variant="outlined" size="small" onChange={(e) => setParam("password", e.target.value)}/><br /><br /> */}
+                {/* <TextField id="outlined-basic" label=":מספר טלפון" variant="outlined" size="small" onChange={(e) => setParam("phone", e.target.value)}/><br /><br /> */}
+                {/* <TextField id="outlined-basic" label=":כתובת מייל" variant="outlined" size="small" onChange={(e) => setParam("email", e.target.value)}/><br /><br />          */}
+            {/* </div> */}
+            
+            <form>
+                <label htmlFor="fullname" >:שם מלא</label><br />
+                <input type="text" id="fullname" name="fullname" onChange={(e) => setParam("fullname", e.target.value)}></input><br /><br />
+                <label htmlFor="userName" >:שם משתמש</label><br />
+                <input type="text" id="userName" name="userName" onChange={(e) => setParam("userName", e.target.value)} ></input><br /><br />
+                <label htmlFor="password" >:סיסמא</label><br />
+                <input type="password" id="password" name="password" onChange={(e) => setParam("password", e.target.value)}></input><br /><br />
+                <label htmlFor="email" >:כתובת מייל</label><br />
+                <input type="email" id="email" name="email" onChange={(e) => setParam("email", e.target.value)}></input><br /><br />
                 <Button variant="contained" color="primary" size="large" onClick={() => loginNewUser(userToInsert)} >רישום</Button>
-            </div>
+            </form>
+            {/* <div>
+                <Button variant="contained" color="primary" size="large" onClick={() => loginNewUser(userToInsert)} >רישום</Button>
+            </div> */}
             <div>
                 <Button variant="contained" color="primary" size="large" >קבלת הצעת מחיר במייל</Button>
                 {/* onClick={() => loginExistingUser()} */}
             </div>
             <div>
-                <Button variant="contained" color="primary" size="large" onClick={registartion}>אישור הזמנה</Button>
+                <Button variant="contained" color="primary" size="large" onClick={registration}>אישור הזמנה</Button>
                 {/* onClick={() => loginExistingUser()} */}
             </div>
         </div>
