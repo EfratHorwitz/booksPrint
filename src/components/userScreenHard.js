@@ -53,10 +53,13 @@ function UserScreenHard() {
             <div>
                 <PaperType/>
             </div>
-            <Button variant="contained" color="primary" size="large" onClick={endChoose}>המשך</Button>
+
             <div>
                 <BindingTypeHard/>
             </div>
+
+            <Button variant="contained" color="primary" size="large" onClick={endChoose}>המשך</Button>
+            
 
             <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a>
             

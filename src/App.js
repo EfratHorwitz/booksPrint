@@ -10,6 +10,9 @@ import TmpAfterReg from './components/tmpAfterReg'
 import UserProfile from './components/userProfile'
 import OrderDetails from './components/orderDetails';
 import PrintOptions from './components/printOptions';
+import BindingTypeHard from './components/bindingTypeHard';
+import BookFormat from './components/bookFormat';
+import BookSize from './components/bookSize';
 import Trial from './components/trial';
 
 
@@ -67,7 +70,17 @@ function App() {
           </Route>
           <Route path="/userProfile">
             <UserProfile />
+          </Route>          
+          <Route path="/bindingTypeHard">
+            <BindingTypeHard />
           </Route>
+          <Route path="/bookFormat">
+            <BookFormat />
+          </Route>          
+          <Route path="/sizeTypes">
+            <BookSize />
+          </Route>
+
         </Switch>
       </div>
     </Router>

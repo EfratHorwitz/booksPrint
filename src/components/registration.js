@@ -9,9 +9,13 @@ import axios from "axios";
 
 function Registration(props) {
 
-    
+    // const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
     const [userToInsert, setUserToInsert] = useState({});
     const [tmpOrder, setTmpOrder] = useState();
+
+    // const sizesTmp = 
+
     // const [book, setBook] = useState;
 
     // setTmpOrder(props.tmpOrder);
@@ -28,11 +32,11 @@ function Registration(props) {
         axios.post("http://localhost:4000/user", userToInsert)
     //   .then((res) => res.json())
     //   .then((res) => {debugger; saveUserDetails(res.data)})
-      .then((res)=> {debugger; console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token))})
+      .then((res)=> {debugger; saveUserDetails(res.data); console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token))})
     //   .then((res)=> {debugger; console.log(res.data.token)})
     //   .then((res)=> {debugger; localStorage.setItem('token', JSON.stringify(res.data.token))})
       .catch((err) => { console.log("error: ", err) });
-
+debugger;
     }
     // localStorage.setItem('itemsArray', JSON.stringify(oldItems));
 
@@ -66,6 +70,7 @@ function Registration(props) {
                 <input type="text" id="userName" name="userName" onChange={(e) => setParam("userName", e.target.value)} ></input><br /><br />
                 <label htmlFor="password" >:סיסמא</label><br />
                 <input type="password" id="password" name="password" onChange={(e) => setParam("password", e.target.value)}></input><br /><br />
+                {/* pattern = "/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/" */}
                 <label htmlFor="email" >:כתובת מייל</label><br />
                 <input type="email" id="email" name="email" onChange={(e) => setParam("email", e.target.value)}></input><br /><br />
                 <Button variant="contained" color="primary" size="large" onClick={() => loginNewUser(userToInsert)} >רישום</Button>
