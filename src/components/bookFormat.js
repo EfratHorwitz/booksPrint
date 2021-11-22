@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import {connect} from 'react-redux';
@@ -9,14 +9,16 @@ function BookFormat(props){
     // const formatTypes = [];
 
     function getFormatTypes(){
-        debugger
+        // debugger
         axios.get("http://localhost:4000/formattypes")
         // .then(res => {debugger; bindingTypes = res.data}) 
         .then(res => console.log("getFormatTypes succeeded",res))
         .catch(err => {debugger; console.log("error:" , err)})
     }
 
-
+    useEffect(()=>{
+        getFormatTypes()        
+    });
 
     return(
         <div>
@@ -41,7 +43,7 @@ function BookFormat(props){
                         </Select>
                     </FormControl>
             </div>
-        <button onClick={getFormatTypes}>getFormatTypes</button>
+        {/* <button onClick={getFormatTypes}>getFormatTypes</button> */}
         </div>
     )
 

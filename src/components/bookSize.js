@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import {connect} from 'react-redux';
@@ -7,14 +7,18 @@ import axios from 'axios';
 function BookSize(props) {
 
     // const sizeTypes = [];
-
+    
     function getSizeTypes(){
-        debugger
+        // debugger
         axios.get("http://localhost:4000/sizeoptions")
         // .then(res => {debugger; bindingTypes = res.data}) 
         .then(res => console.log("getSizeTypes succeeded",res))
         .catch(err => {debugger; console.log("error:" , err)})
     }
+
+    useEffect(()=>{
+        getSizeTypes()
+    })
 
     return (
         <div>
@@ -40,7 +44,7 @@ function BookSize(props) {
                 </Select>
             </FormControl>
         </div>
-        <button onClick={getSizeTypes} >getSizeTypes</button>
+        {/* <button onClick={getSizeTypes} >getSizeTypes</button> */}
         </div>
     )
 }

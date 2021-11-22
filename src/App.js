@@ -80,7 +80,9 @@ function App() {
           <Route path="/sizeTypes">
             <BookSize />
           </Route>
-
+          <Route path="/trial">
+            <Trial />
+          </Route>
         </Switch>
       </div>
     </Router>

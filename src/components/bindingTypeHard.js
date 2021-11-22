@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import {connect} from 'react-redux';
@@ -9,14 +9,16 @@ function BindingTypeHard(props){
     // const bindingTypes = [];
 
     function getBindingTypes(){
-        debugger
+        // debugger
         axios.get("http://localhost:4000/bindingtypes")
         // .then(res => {debugger; bindingTypes = res.data}) 
         .then(res => console.log("getBindingTypes succeeded",res))
         .catch(err => {debugger; console.log("error:" , err)})
     }
 
-
+    useEffect(()=>{
+        getBindingTypes()        
+    });
 
     return(
     <div>
@@ -38,7 +40,7 @@ function BindingTypeHard(props){
                     </Select>
                 </FormControl>
         </div>
-        <button onClick={getBindingTypes} >getBindingTypes</button>
+        {/* <button onClick={getBindingTypes} >getBindingTypes</button> */}
     </div>
     )
 

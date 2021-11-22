@@ -32,7 +32,7 @@ function Registration(props) {
         axios.post("http://localhost:4000/user", userToInsert)
     //   .then((res) => res.json())
     //   .then((res) => {debugger; saveUserDetails(res.data)})
-      .then((res)=> {debugger; saveUserDetails(res.data); console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token))})
+      .then((res)=> {debugger; saveUserDetails(res.data); console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token));alert("you registered successfully")})
     //   .then((res)=> {debugger; console.log(res.data.token)})
     //   .then((res)=> {debugger; localStorage.setItem('token', JSON.stringify(res.data.token))})
       .catch((err) => { console.log("error: ", err) });
