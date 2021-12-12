@@ -1,4 +1,5 @@
 const initialState = {
+    bookType: "",
     size: 0,
     color: "",
     format: "",

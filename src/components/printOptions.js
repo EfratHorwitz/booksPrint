@@ -1,18 +1,23 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
+import {connect} from 'react-redux';
+import { saveOrderDetails } from '../actions';
 
-function PrintOptions() {
+function PrintOptions(props) {
 
     let history = useHistory();
 
     function soft() {
+        props.saveOrderDetails({"bindingType": "soft"})
         history.push("/userScreenSoft");
     }
     function hard() {
+        props.saveOrderDetails({"bindingType": "hard"})
         history.push("/userScreenHard");
     }
     function staples() {
+        props.saveOrderDetails({"bindingType": "staples"})
         history.push("/userScreenStaples");
     }
 
@@ -28,5 +33,5 @@ function PrintOptions() {
     )
 
 }
- export default PrintOptions;
+export default connect(null, { saveOrderDetails })(PrintOptions);
 
