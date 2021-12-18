@@ -6,19 +6,18 @@ import axios from 'axios';
 
 function BindingTypeHard(props){
 
-    // const bindingTypes = [];
+    let bindingTypesHard = [];
 
-    function getBindingTypes(){
-        // debugger
+    function getBindingTypesHard(){        
         axios.get("http://localhost:4000/bindingtypes")
-        // .then(res => {debugger; bindingTypes = res.data}) 
-        .then(res => console.log("getBindingTypes succeeded",res))
-        .catch(err => {debugger; console.log("error:" , err)})
+        .then(res => {bindingTypesHard = res.data; console.log("bindingTypesHard", bindingTypesHard)}) 
+        // .then(res => console.log("getBindingTypes succeeded",res))
+        .catch(err => {console.log("error:" , err)})
     }
 
     useEffect(()=>{
-        getBindingTypes()        
-    });
+        getBindingTypesHard()        
+    }, []);
 
     return(
     <div>

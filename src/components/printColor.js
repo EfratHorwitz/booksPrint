@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 function PrintColor(props) {
+
+    let printColorOptions = [];
+
+    function getPrintColorOptions(){        
+        axios.get("http://localhost:4000/coloroptions")
+        // .then(res => {bindingTypes = res.data}) 
+        .then(res => {printColorOptions = res.data ;console.log("printColorOptions",printColorOptions)})
+        .catch(err => { console.log("error:" , err)})
+    }
+
+    useEffect(()=>{
+        getPrintColorOptions()        
+    },[]);
 
     return (
         <div>

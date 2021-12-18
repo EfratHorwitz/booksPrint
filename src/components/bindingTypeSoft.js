@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 function BindingTypeSoft(props){
+
+    let bindingTypesSoft = [];
+
+    function getBindingTypesSoft(){        
+        axios.get("http://localhost:4000/bindingtypes")
+        .then(res => {bindingTypesSoft = res.data; console.log("bindingTypesSoft", bindingTypesSoft)}) 
+        // .then(res => console.log("getBindingTypes succeeded",res))
+        .catch(err => {console.log("error:" , err)})
+    }
+
+    useEffect(()=>{
+        getBindingTypesSoft()        
+    }, []);
 
     return(
         <div>

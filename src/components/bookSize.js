@@ -6,19 +6,19 @@ import axios from 'axios';
 
 function BookSize(props) {
 
-    // const sizeTypes = [];
+    let sizeOptions = [];
     
-    function getSizeTypes(){
+    function getSizeOptions(){
         // debugger
         axios.get("http://localhost:4000/sizeoptions")
-        // .then(res => {debugger; bindingTypes = res.data}) 
-        .then(res => console.log("getSizeTypes succeeded",res))
-        .catch(err => {debugger; console.log("error:" , err)})
+        .then(res => {sizeOptions = res.data; console.log("sizeOptions", sizeOptions)}) 
+        // .then(res => console.log("getSizeTypes succeeded",res.data))
+        .catch(err => {console.log("error:" , err)})
     }
 
     useEffect(()=>{
-        getSizeTypes()
-    })
+        getSizeOptions()
+    },[])
 
     return (
         <div>

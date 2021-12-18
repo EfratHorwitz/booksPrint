@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 function BindingTypeStaples(props){
+
+    let bindingTypesStaples = [];
+
+    function getBindingTypesStaples(){        
+        axios.get("http://localhost:4000/bindingtypes")
+        .then(res => {bindingTypesStaples = res.data; console.log("bindingTypesStaples", bindingTypesStaples)}) 
+        // .then(res => console.log("getBindingTypes succeeded",res))
+        .catch(err => {console.log("error:" , err)})
+    }
+
+    useEffect(()=>{
+        getBindingTypesStaples()        
+    }, []);
 
     return(
         <div>

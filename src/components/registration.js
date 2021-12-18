@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react';
+// import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom";
 import {connect} from "react-redux";
 import {saveUserDetails} from "../actions/saveUserDetails";
@@ -12,7 +12,7 @@ function Registration(props) {
     // const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
     const [userToInsert, setUserToInsert] = useState({});
-    const [tmpOrder, setTmpOrder] = useState();
+    // const [tmpOrder, setTmpOrder] = useState();
 
     // const sizesTmp = 
 

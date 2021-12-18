@@ -8,7 +8,7 @@ import Registration from './components/registration';
 import ManagerScreen from './components/managerScreen';
 import TmpAfterReg from './components/tmpAfterReg'
 import UserProfile from './components/userProfile'
-import OrderDetails from './components/orderDetails';
+// import OrderDetails from './components/orderDetails';
 import PrintOptions from './components/printOptions';
 import BindingTypeHard from './components/bindingTypeHard';
 import BookFormat from './components/bookFormat';

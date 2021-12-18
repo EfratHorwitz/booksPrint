@@ -6,19 +6,19 @@ import axios from 'axios';
 
 function BookFormat(props){
 
-    // const formatTypes = [];
+    let formatTypes = [];
 
     function getFormatTypes(){
         // debugger
         axios.get("http://localhost:4000/formattypes")
-        // .then(res => {debugger; bindingTypes = res.data}) 
-        .then(res => console.log("getFormatTypes succeeded",res))
-        .catch(err => {debugger; console.log("error:" , err)})
+        .then(res => {formatTypes = res.data ; console.log("formatTypes", formatTypes) }) 
+        // .then(res => console.log("getFormatTypes succeeded",res))
+        .catch(err => {console.log("error:" , err)})
     }
 
     useEffect(()=>{
         getFormatTypes()        
-    });
+    },[]);
 
     return(
         <div>
