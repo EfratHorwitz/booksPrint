@@ -6,7 +6,7 @@ function NumOfBooks(props) {
 
     return (
         <div>
-            <label>:כמות</label><br/>
+            <label>:כמות ספרים</label><br/>
             <input  type="number" min="10" step="5" onChange={(e) => props.saveOrderDetails({"quantity": e.target.value})} /><br/><br/>
         </div>
     )

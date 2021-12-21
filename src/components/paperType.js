@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import { connect } from 'react-redux';
@@ -6,12 +6,12 @@ import axios from 'axios';
 
 function PaperType(props) {
 
-    let paperTypes = [];
+    const[paperTypes, setPaperTypes] = useState([]);
 
     function getPaperTypes(){        
         axios.get("http://localhost:4000/papertypes")
         // .then(res => {bindingTypes = res.data}) 
-        .then(res => {paperTypes = res.data ;console.log("paperTypes",paperTypes)})
+        .then(res => {setPaperTypes(res.data)})
         .catch(err => { console.log("error:" , err)})
     }
 
@@ -19,11 +19,12 @@ function PaperType(props) {
         getPaperTypes()        
     },[]);
 
+    useEffect(()=>{
+        console.log("$", paperTypes);       
+    },[paperTypes]);
+
     return (
-        <div>
-            <label>
-                ":סוג נייר"
-                </label><br /><br />
+        <div>            
             <FormControl variant="outlined" >
                 <InputLabel id="demo-simple-select-outlined-label">:סוג נייר</InputLabel>
                 <Select
@@ -33,12 +34,7 @@ function PaperType(props) {
                     onChange={(e) => props.saveOrderDetails({ "paperType": e.target.value })}
                     label="Age"
                 >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                {paperTypes?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
                 </Select>
             </FormControl>
         </div>

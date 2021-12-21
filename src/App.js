@@ -14,7 +14,7 @@ import BindingTypeHard from './components/bindingTypeHard';
 import BookFormat from './components/bookFormat';
 import BookSize from './components/bookSize';
 import Trial from './components/trial';
-
+import PrintColor from './components/printColor';
 
 import { useEffect } from "react";
 import {
@@ -82,6 +82,9 @@ function App() {
           </Route>
           <Route path="/trial">
             <Trial />
+          </Route>
+          <Route path="/coloroptions">
+            <PrintColor />
           </Route>
         </Switch>
       </div>
