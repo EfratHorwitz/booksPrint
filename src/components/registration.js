@@ -32,11 +32,12 @@ function Registration(props) {
         axios.post("http://localhost:4000/user", userToInsert)
     //   .then((res) => res.json())
     //   .then((res) => {debugger; saveUserDetails(res.data)})
-      .then((res)=> {debugger; saveUserDetails(res.data); console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token));alert("you registered successfully")})
+      .then((res)=> {saveUserDetails(res.data.user); console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token)) })
+    // .then((res)=> {console.log("loginNewUser", res.data)})
     //   .then((res)=> {debugger; console.log(res.data.token)})
     //   .then((res)=> {debugger; localStorage.setItem('token', JSON.stringify(res.data.token))})
       .catch((err) => { console.log("error: ", err) });
-debugger;
+      debugger;
     }
     // localStorage.setItem('itemsArray', JSON.stringify(oldItems));
 
@@ -73,19 +74,20 @@ debugger;
                 {/* pattern = "/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/" */}
                 <label htmlFor="email" >:כתובת מייל</label><br />
                 <input type="email" id="email" name="email" onChange={(e) => setParam("email", e.target.value)}></input><br /><br />
+
                 <Button variant="contained" color="primary" size="large" onClick={() => loginNewUser(userToInsert)} >רישום</Button>
             </form>
             {/* <div>
                 <Button variant="contained" color="primary" size="large" onClick={() => loginNewUser(userToInsert)} >רישום</Button>
             </div> */}
-            <div>
-                <Button variant="contained" color="primary" size="large" >קבלת הצעת מחיר במייל</Button>
+            {/* <div> */}
+                {/* <Button variant="contained" color="primary" size="large" >קבלת הצעת מחיר במייל</Button> */}
                 {/* onClick={() => loginExistingUser()} */}
-            </div>
-            <div>
-                <Button variant="contained" color="primary" size="large" onClick={registration}>אישור הזמנה</Button>
+            {/* </div> */}
+            {/* <div> */}
+                {/* <Button variant="contained" color="primary" size="large" onClick={registration}>אישור הזמנה</Button> */}
                 {/* onClick={() => loginExistingUser()} */}
-            </div>
+            {/* </div> */}
         </div>
     )
 }

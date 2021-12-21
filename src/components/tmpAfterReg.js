@@ -18,7 +18,7 @@ function TmpAfterReg(){
             <input type="email" onChange={(e)=> setNewEmail(e.target.value) } />
             <button onClick={()=>sendEmail(newEmail)} >אישור</button>
 
-            <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a>
+            {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
             {/* //inlineBlock */}
         </div>
         

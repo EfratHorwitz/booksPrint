@@ -1,30 +1,28 @@
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
 
 function SelectGeneric(props){
 
+    let attribute = props.descStr;
+
+    useEffect(()=>{
+
+    },[]);
+
     return (
         <div>
-            <label>
-                :צבע הדפסה
-            </label><br /><br />
             <FormControl variant="outlined" >
                 <InputLabel id="demo-simple-select-outlined-label">:צבע הדפסה</InputLabel>
                 < Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={2}
-                    onChange={(e) => props.saveOrderDetails({ "color": e.target.value })}
+                    onChange={(e) => props.saveOrderDetails({ attribute : e.target.value })}
                     label="Age"
                 >
-                    {/* <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem> */}
-                    
-                    {printColorOptions?.map(pc => {return <MenuItem value={pc.name}>{pc.name}</MenuItem>})}
-                    {/* <MenuItem value={10}>שחור לבן</MenuItem>
-                    <MenuItem value={20}>צבעוני</MenuItem> */}
+                    {props.dataList?.map(pc => {return <MenuItem value={pc.name}>{pc.name}</MenuItem>})}
                 </Select>
             </FormControl>
         </div>

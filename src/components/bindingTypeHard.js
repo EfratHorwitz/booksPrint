@@ -26,8 +26,8 @@ function BindingTypeHard(props){
     return(
         <div>
             <FormControl variant="outlined" >
-                <InputLabel id="demo-simple-select-outlined-label">פורמט</InputLabel>
-                {  <Select
+                <InputLabel id="demo-simple-select-outlined-label">:סוג הכריכה</InputLabel>
+                <Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={2}
@@ -35,7 +35,7 @@ function BindingTypeHard(props){
                     label="Age"
                 >
                     {bindingTypesHard?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
-                </Select>}
+                </Select>
             </FormControl>        
         </div>
     )

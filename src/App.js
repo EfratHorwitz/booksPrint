@@ -38,8 +38,10 @@ function App() {
 //     <div>
 // <Trial/>
 //     </div>
+
     <Router>
       <div>
+      <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a>
         <Switch>
           <Route path="/" exact>
             <Home />

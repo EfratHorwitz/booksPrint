@@ -59,7 +59,7 @@ function UserScreenSoft() {
                 <BindingTypeSoft/>
             </div>
 
-            <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a>
+            {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
             
         </div>
     )

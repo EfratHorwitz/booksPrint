@@ -23,7 +23,7 @@ function PrintOptions(props) {
 
     return (
         <div>
-            <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a>
+            {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
 
             <label>?מה תרצה להדפיס</label><br></br>
             <Button variant="contained" color="primary" size="large" onClick={soft}>ספר כריכה רכה</Button>
