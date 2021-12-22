@@ -3,8 +3,9 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import SelectGeneric from './selectGeneric';
 
-function PaperType(props) {
+function PaperType() {
 
     const[paperTypes, setPaperTypes] = useState([]);
 
@@ -24,19 +25,23 @@ function PaperType(props) {
     },[paperTypes]);
 
     return (
-        <div>            
-            <FormControl variant="outlined" >
-                <InputLabel id="demo-simple-select-outlined-label">:סוג נייר</InputLabel>
-                <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    value={2}
-                    onChange={(e) => props.saveOrderDetails({ "paperType": e.target.value })}
-                    label="Age"
-                >
-                {paperTypes?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
-                </Select>
-            </FormControl>
+        // <div>            
+        //     <FormControl variant="outlined" >
+        //         <InputLabel id="demo-simple-select-outlined-label">:סוג נייר</InputLabel>
+        //         <Select
+        //             labelId="demo-simple-select-outlined-label"
+        //             id="demo-simple-select-outlined"
+        //             value={2}
+        //             onChange={(e) => props.saveOrderDetails({ "paperType": e.target.value })}
+        //             label="Age"
+        //         >
+        //         {paperTypes?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
+        //         </Select>
+        //     </FormControl>
+        // </div>
+        <div>
+            <label>:סוג נייר</label><br></br>
+            <SelectGeneric dataList = {paperTypes} descStr = "paperType" myTitle = "bookSize" />
         </div>
     )
 }
@@ -46,4 +51,4 @@ function PaperType(props) {
 //         orderPaperType: state.order.paperType
 //     };
 // };
-export default connect(null, { saveOrderDetails })(PaperType);
+export default PaperType;

@@ -3,8 +3,9 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import SelectGeneric from './selectGeneric';
 
-function PrintColor(props) {
+function PrintColor() {
 
     // let printColorOptions = [];
     const[printColorOptions, setPrintColorOptions] = useState([]);
@@ -25,19 +26,23 @@ function PrintColor(props) {
     },[printColorOptions]);
 
     return (
+        // <div>
+        //     <FormControl variant="outlined" >
+        //         <InputLabel id="demo-simple-select-outlined-label">:צבע הדפסה</InputLabel>
+        //         < Select
+        //             labelId="demo-simple-select-outlined-label"
+        //             id="demo-simple-select-outlined"
+        //             value={2}
+        //             onChange={(e) => props.saveOrderDetails({ "color": e.target.value })}
+        //             label="Age"
+        //         >                
+        //         {printColorOptions?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
+        //         </Select>
+        //     </FormControl>
+        // </div>
         <div>
-            <FormControl variant="outlined" >
-                <InputLabel id="demo-simple-select-outlined-label">:צבע הדפסה</InputLabel>
-                < Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    value={2}
-                    onChange={(e) => props.saveOrderDetails({ "color": e.target.value })}
-                    label="Age"
-                >                
-                {printColorOptions?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
-                </Select>
-            </FormControl>
+            <label>:צבע הדפסה</label><br></br>
+            <SelectGeneric dataList = {printColorOptions} descStr = "color" myTitle = "bookSize" />
         </div>
     )
 
@@ -49,4 +54,4 @@ function PrintColor(props) {
 //         orderPrintColor: state.order.printColor
 //     };
 // };
-export default connect(null, { saveOrderDetails })(PrintColor);
+export default PrintColor;

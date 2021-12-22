@@ -3,8 +3,9 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import SelectGeneric from './selectGeneric';
 
-function BookSize(props) {
+function BookSize() {
 
     const[sizeOptions, setSizeOptions] = useState([]);
     
@@ -25,19 +26,25 @@ function BookSize(props) {
     },[sizeOptions]);
 
     return (
+        
+        // <div>
+        //     <FormControl variant="outlined" >
+        //         <InputLabel id="demo-simple-select-outlined-label">גודל הספר</InputLabel>
+        //         <Select
+        //             labelId="demo-simple-select-outlined-label"
+        //             id="demo-simple-select-outlined"
+        //             value={2}
+        //             onChange={(e) => props.saveOrderDetails({"size": e.target.value})}
+        //              label="Age"
+        //         >
+        //         {sizeOptions?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
+        //         </Select>
+        //     </FormControl>     
+        // </div>
+        
         <div>
-            <FormControl variant="outlined" >
-                <InputLabel id="demo-simple-select-outlined-label">גודל הספר</InputLabel>
-                <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    value={2}
-                    onChange={(e) => props.saveOrderDetails({"size": e.target.value})}
-                     label="Age"
-                >
-                {sizeOptions?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
-                </Select>
-            </FormControl>     
+            <label>:גודל הספר</label><br></br>
+            <SelectGeneric dataList = {sizeOptions} descStr = "size" myTitle = "bookSize" />
         </div>
     )
 }
@@ -47,4 +54,4 @@ function BookSize(props) {
 //         orderBookSize: state.order.bookSize
 //     };
 // };
-export default connect(null, { saveOrderDetails })(BookSize);
+export default BookSize;

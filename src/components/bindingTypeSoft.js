@@ -3,8 +3,9 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import SelectGeneric from './selectGeneric';
 
-function BindingTypeSoft(props){
+function BindingTypeSoft(){
 
     const[bindingTypesSoft, setBindingTypesSoft] = useState([]);
 
@@ -24,22 +25,26 @@ function BindingTypeSoft(props){
     },[bindingTypesSoft]);
 
     return(
+        // <div>
+        //     <FormControl variant="outlined" >
+        //         <InputLabel id="demo-simple-select-outlined-label">פורמט</InputLabel>
+        //         <Select
+        //             labelId="demo-simple-select-outlined-label"
+        //             id="demo-simple-select-outlined"
+        //             value={2}
+        //             onChange={(e) => props.saveOrderDetails({"bindingType": e.target.value})}
+        //             label="Age"
+        //         >
+        //         {bindingTypesSoft?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
+        //         </Select>
+        //     </FormControl>
+        // </div>
         <div>
-            <FormControl variant="outlined" >
-                <InputLabel id="demo-simple-select-outlined-label">פורמט</InputLabel>
-                <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    value={2}
-                    onChange={(e) => props.saveOrderDetails({"bindingType": e.target.value})}
-                    label="Age"
-                >
-                {bindingTypesSoft?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
-                </Select>
-            </FormControl>
+            <label>:סוג הכריכה</label><br></br>
+            <SelectGeneric dataList = {bindingTypesSoft} descStr = "bindingType" myTitle = "bookSize" />
         </div>
     )
 
 }
 
-export default connect(null, { saveOrderDetails })(BindingTypeSoft);
+export default BindingTypeSoft;

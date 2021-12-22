@@ -6,7 +6,7 @@ function NumPages(props){
 
     return(
         <div>
-            <label>:מספר עמודים</label>
+            <label>:מספר עמודים</label><br/>
             <input type="number" min="10" step="2" onChange={(e) => props.saveOrderDetails({"pagesNum": e.target.value})} />
             
         </div>

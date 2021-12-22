@@ -30,35 +30,36 @@ function UserScreenSoft() {
     
     return (
         <div>
-
+            <br></br>
             <div>
                 <BookSize/>
-            </div>
+            </div><br></br>
 
             <div>
                 <BookFormat/>
-            </div>
+            </div><br></br>
 
             <div>
                 <NumPages/>
-            </div>
+            </div><br></br>
 
             <div>
                 <PaperType/>
-            </div>
+            </div><br></br>
 
             <div>
                 <PrintColor/>
-            </div>
+            </div><br></br>
 
             <div>
                 <NumOfBooks/>
-            </div>
-            <Button variant="contained" color="primary" size="large" onClick={endChoose}> סיום</Button>
+            </div><br></br>
+           
             <div>
                 <BindingTypeSoft/>
-            </div>
+            </div><br></br>
 
+            <Button variant="contained" color="primary" size="large" onClick={endChoose}> המשך </Button>
             {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
             
         </div>

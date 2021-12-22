@@ -3,8 +3,9 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import SelectGeneric from './selectGeneric';
 
-function BookFormat(props){
+function BookFormat(){
 
     const[formatTypes, setFormatTypes] = useState([]);
 
@@ -25,20 +26,24 @@ function BookFormat(props){
     },[formatTypes]);
 
     return(
+        // <div>
+        //     <FormControl variant="outlined" >
+        //         <InputLabel id="demo-simple-select-outlined-label">פורמט</InputLabel>
+        //         <Select
+        //             labelId="demo-simple-select-outlined-label"
+        //             id="demo-simple-select-outlined"
+        //             value={2}
+        //             onChange={(e) => props.saveOrderDetails({"format": e.target.value})}
+        //             label="Age"
+        //         >
+        //         {formatTypes?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
+        //         </Select>
+        //     </FormControl>
+        // </div>
         <div>
-            <FormControl variant="outlined" >
-                <InputLabel id="demo-simple-select-outlined-label">פורמט</InputLabel>
-                <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    value={2}
-                    onChange={(e) => props.saveOrderDetails({"format": e.target.value})}
-                    label="Age"
-                >
-                {formatTypes?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}
-                </Select>
-            </FormControl>
-        </div>
+        <label>:פורמט</label><br></br>
+        <SelectGeneric dataList = {formatTypes} descStr = "format" myTitle = "the title" />
+    </div>
     )
 
 }
@@ -48,4 +53,4 @@ function BookFormat(props){
 //         format: state.order.format
 //     };
 // };
-export default connect(null, { saveOrderDetails })(BookFormat);
+export default BookFormat;

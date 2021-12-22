@@ -1,3 +1,4 @@
+import React from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { saveOrderDetails } from '../actions';
 import { connect } from 'react-redux';
@@ -5,16 +6,20 @@ import { useEffect } from 'react';
 
 function SelectGeneric(props){
 
-    let attribute = props.descStr;
+    let attribute = "";
+    let title = "";
 
     useEffect(()=>{
-
+        attribute = props.descStr;
+        debugger;
+        title = props.myTitle;
+        debugger;
     },[]);
 
     return (
         <div>
             <FormControl variant="outlined" >
-                <InputLabel id="demo-simple-select-outlined-label">:צבע הדפסה</InputLabel>
+                {/* <InputLabel id="demo-simple-select-outlined-label">{title}</InputLabel> */}
                 < Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
@@ -31,3 +36,5 @@ function SelectGeneric(props){
 
 
 }
+
+export default connect(null, { saveOrderDetails })(SelectGeneric);
