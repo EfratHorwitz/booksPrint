@@ -18,12 +18,12 @@ function SelectGeneric(props){
 
     return (
         <div>
-            <FormControl variant="outlined" >
+            <FormControl style={{width: 100}} variant="outlined" >
                 {/* <InputLabel id="demo-simple-select-outlined-label">{title}</InputLabel> */}
                 < Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
-                    value={2}
+                    value={e => e.target.value}
                     onChange={(e) => props.saveOrderDetails({ attribute : e.target.value })}
                     label="Age"
                 >

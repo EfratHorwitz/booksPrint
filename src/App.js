@@ -15,6 +15,7 @@ import BookFormat from './components/bookFormat';
 import BookSize from './components/bookSize';
 import Trial from './components/trial';
 import PrintColor from './components/printColor';
+import Extras from './components/extras';
 
 import { useEffect } from "react";
 import {
@@ -87,6 +88,9 @@ function App() {
           </Route>
           <Route path="/coloroptions">
             <PrintColor />
+          </Route>
+          <Route path="/extras">
+            <Extras />
           </Route>
         </Switch>
       </div>
