@@ -40,8 +40,8 @@ function BindingTypeSoft(){
         //     </FormControl>
         // </div>
         <div>
-            <label>:סוג הכריכה</label><br></br>
-            <SelectGeneric dataList = {bindingTypesSoft} descStr = "bindingType" myTitle = "bookSize" />
+            {/* <label>:סוג הכריכה</label><br></br> */}
+            <SelectGeneric dataList = {bindingTypesSoft} descStr = "bindingType" myTitle = "סוג הכריכה" />
         </div>
     )
 

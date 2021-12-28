@@ -41,8 +41,8 @@ function BookFormat(){
         //     </FormControl>
         // </div>
         <div>
-        <label>:פורמט</label><br></br>
-        <SelectGeneric dataList = {formatTypes} descStr = "format" myTitle = "the title" />
+        {/* <label>:פורמט</label><br></br> */}
+        <SelectGeneric dataList = {formatTypes} descStr = "format" myTitle = "פורמט" />
     </div>
     )
 

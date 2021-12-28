@@ -40,8 +40,8 @@ function BindingTypeStaples(){
         //     </FormControl>
         // </div>
         <div>
-            <label>:סוג הכריכה</label><br></br>
-            <SelectGeneric dataList = {bindingTypesStaples} descStr = "bindingType" myTitle = "bookSize" />
+            {/* <label>:סוג הכריכה</label><br></br> */}
+            <SelectGeneric dataList = {bindingTypesStaples} descStr = "bindingType" myTitle = "סוג הכריכה" />
         </div>
     )
 

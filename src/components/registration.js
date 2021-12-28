@@ -24,7 +24,7 @@ function Registration(props) {
     let history = useHistory();
 
     function registration() {
-        history.push("/completeOrder");
+        history.push("/tmpAfterReg");
     }
 
     function loginNewUser(user){
@@ -32,7 +32,7 @@ function Registration(props) {
         axios.post("http://localhost:4000/user", userToInsert)
     //   .then((res) => res.json())
     //   .then((res) => {debugger; saveUserDetails(res.data)})
-      .then((res)=> {saveUserDetails(res.data.user); console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token)) })
+      .then((res)=> {saveUserDetails(res.data.user); registration(); console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token)) })
     // .then((res)=> {console.log("loginNewUser", res.data)})
     //   .then((res)=> {debugger; console.log(res.data.token)})
     //   .then((res)=> {debugger; localStorage.setItem('token', JSON.stringify(res.data.token))})

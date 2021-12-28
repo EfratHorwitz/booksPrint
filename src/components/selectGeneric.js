@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 function SelectGeneric(props){
 
     let attribute = "";
-    let title = "";
+    let title = "בענכימי";
 
     useEffect(()=>{
         attribute = props.descStr;
@@ -19,12 +19,12 @@ function SelectGeneric(props){
     return (
         <div>
             <FormControl variant="outlined" >
-                {/* <InputLabel id="demo-simple-select-outlined-label">{title}</InputLabel> */}
+                <InputLabel id="demo-simple-select-outlined-label">{props.myTitle}</InputLabel>
                 < Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
-                    value={2}
-                    onChange={(e) => props.saveOrderDetails({ attribute : e.target.value })}
+                    value={props.dataList[0]?.name}
+                    onChange={(e) => {debugger;props.saveOrderDetails({ [props.descStr] : e.target.value })}}
                     label="Age"
                 >
                     {props.dataList?.map(pc => {return <MenuItem value={pc.name}>{pc.name}</MenuItem>})}

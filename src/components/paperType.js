@@ -40,8 +40,8 @@ function PaperType() {
         //     </FormControl>
         // </div>
         <div>
-            <label>:סוג נייר</label><br></br>
-            <SelectGeneric dataList = {paperTypes} descStr = "paperType" myTitle = "bookSize" />
+            {/* <label>:סוג נייר</label><br></br> */}
+            <SelectGeneric dataList = {paperTypes} descStr = "paperType" myTitle = "סוג נייר" />
         </div>
     )
 }

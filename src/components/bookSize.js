@@ -43,8 +43,8 @@ function BookSize() {
         // </div>
         
         <div>
-            <label>:גודל הספר</label><br></br>
-            <SelectGeneric dataList = {sizeOptions} descStr = "size" myTitle = "bookSize" />
+            {/* <label>:גודל הספר</label><br></br> */}
+            <SelectGeneric dataList = {sizeOptions} descStr = "size" myTitle = "גודל" />
         </div>
     )
 }

@@ -41,8 +41,8 @@ function PrintColor() {
         //     </FormControl>
         // </div>
         <div>
-            <label>:צבע הדפסה</label><br></br>
-            <SelectGeneric dataList = {printColorOptions} descStr = "color" myTitle = "bookSize" />
+            {/* <label>:צבע הדפסה</label><br></br> */}
+            <SelectGeneric dataList = {printColorOptions} descStr = "color" myTitle = "צבע הדפסה" />
         </div>
     )
 

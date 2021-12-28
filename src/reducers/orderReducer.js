@@ -6,7 +6,8 @@ const initialState = {
     pagesNum: 0,
     paperType: "",
     quantity: 0,
-    bindingType: ""
+    bindingType: "",
+    attribute : ""
 }
 
 export default (state = initialState, action) => {
