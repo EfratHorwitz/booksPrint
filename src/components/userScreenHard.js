@@ -419,7 +419,7 @@ function UserScreenHard(props) {
                 <BindingTypeHard/>
             </div><br></br>
 
-            <Button variant="contained" color="primary" size="large" onClick={calcCost} > המשך </Button>
+            <Button variant="contained" color="primary" size="large" onClick={endChoose} > המשך </Button>
             {/* endChoose */}
 
             {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
