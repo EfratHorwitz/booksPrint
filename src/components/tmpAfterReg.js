@@ -1,11 +1,14 @@
 import React, {useState} from "react";
+import PriceProposal from './priceProposal';
+import { useHistory } from "react-router-dom";
 
-function TmpAfterReg(){
+function TmpAfterReg(props){
 
     const[newEmail, setNewEmail] = useState();
+    const history = useHistory();
 
-    function sendEmail(emailAddress){
-        console.log("blablabla");
+    function finishOrder(){
+        history.push("/completeOrder");
     }
 
     return(
@@ -15,21 +18,10 @@ function TmpAfterReg(){
             <br/>
             הצעת מחיר נשלחה לכתובת המייל שהזנת ברישום
             </div>
-            {/* <button>להזנת כתובת אחרת לשליחת הצעת מחיר </button>
-            <input type="email" onChange={(e)=> setNewEmail(e.target.value) } />
-            <button onClick={()=>sendEmail(newEmail)} >אישור</button> */}
-
-
-            {/* <div>
-            הכנס כתובת מייל לשינוי כתובת המייל אליה תגיע הצעת המחיר
+            <div>
+                {/* <PriceProposal/> */}
             </div>
-            <input type="email" onChange={(e)=> props.saveUserDetails("email", e.target.value) } />
-            {/* <input type="email" onChange={(e)=> setNewEmail(e.target.value) } /> */}
-            {/* <button onClick={()=>sendEmail(newEmail)} >לקבלת הצעת מחיר</button>  */}
-
-
-            {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
-            {/* //inlineBlock */}
+            <button onClick={finishOrder} >מעוניין להמשיך לביצוע הזמנה?</button>
         </div>
         
     )

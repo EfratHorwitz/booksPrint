@@ -27,12 +27,13 @@ function Registration(props) {
         history.push("/tmpAfterReg");
     }
 
-    function loginNewUser(user){
+    function loginNewUser(user){ //no need for this "user"
         debugger;
         axios.post("http://localhost:4000/user", userToInsert)
     //   .then((res) => res.json())
     //   .then((res) => {debugger; saveUserDetails(res.data)})
-      .then((res)=> {saveUserDetails(res.data.user); registration(); console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token)) })
+      .then((res)=> {saveUserDetails(res.data.user); console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token)) })
+      .then(()=>{registration();})
     // .then((res)=> {console.log("loginNewUser", res.data)})
     //   .then((res)=> {debugger; console.log(res.data.token)})
     //   .then((res)=> {debugger; localStorage.setItem('token', JSON.stringify(res.data.token))})

@@ -10,7 +10,7 @@ function ManagerScreen() {
                 בחר סטטוס ההזמנות הרצויות
             </label>
             <FormControl variant="outlined">
-                <InputLabel id="demo-simple-select-outlined-label">גודל הספר</InputLabel>
+                <InputLabel id="demo-simple-select-outlined-label">סטטוס הזמנה</InputLabel>
                 <Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
@@ -18,12 +18,9 @@ function ManagerScreen() {
                     onChange={() => { }}
                     label="Age"
                 >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={10}>חדש</MenuItem>
+                    <MenuItem value={20}>בהדפסה</MenuItem>
+                    <MenuItem value={30}>מוכן</MenuItem>
                 </Select>
             </FormControl>
            

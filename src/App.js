@@ -16,6 +16,11 @@ import BookSize from './components/bookSize';
 import Trial from './components/trial';
 import PrintColor from './components/printColor';
 import Extras from './components/extras';
+import PriceProposal from './components/priceProposal';
+import UploadFile from './components/uploadFile';
+import Goodby from './components/goodby';
+import MyOrders from './components/myOrders';
+import MyProposals from './components/myProposals';
 
 import { useEffect } from "react";
 import {
@@ -35,6 +40,12 @@ function App() {
       // localStorage.setItem('language', 'JavaScript');
   }, [])
 
+  function logout(){
+    debugger;
+    localStorage.setItem("token", null);
+    debugger;
+  }
+
   return (
 //     <div>
 // <Trial/>
@@ -42,7 +53,9 @@ function App() {
 
     <Router>
       <div>
-      <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a>
+      {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >להתחברות</a> */}
+      <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a><br/>
+      <a href="http://localhost:3000/" style={{display: localStorage.getItem("token")?"inline-block":"none"}} onClick={logout}>להתנתק</a>
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -91,8 +104,21 @@ function App() {
           </Route>
           <Route path="/extras">
             <Extras />
+          </Route>          
+          <Route path="/priceProposal">
+            <PriceProposal />
+          </Route>
+          <Route path="/uploadFile">
+            <UploadFile />
+          </Route>
+          <Route path="/goodby">
+            <Goodby />
+          </Route>
+          <Route path="/myOrders">
+            <Goodby />
           </Route>
         </Switch>
+        
       </div>
     </Router>
   )
