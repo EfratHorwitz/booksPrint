@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
 // import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom";
-import { saveOrderDetails } from '../actions';
+import { saveBookDetails } from '../actions';
 import BookSize from './bookSize';
 import BookFormat from './bookFormat';
 import NumPages from './numPages';
@@ -19,7 +19,7 @@ import numOfBooks from './numOfBooks';
 function UserScreenHard(props) {
 
     const history = useHistory();
-    // const [order, setOrder] = useState();
+    // const [book, setbook] = useState();
 
 
     function endChoose() {
@@ -32,7 +32,7 @@ function UserScreenHard(props) {
     }
 
     // const setParam = (key, val) => {
-    //     setOrder({ ...order, [key]: val })
+    //     setbook({ ...book, [key]: val })
     // }
 
     function calcCost(){
@@ -54,7 +54,7 @@ function UserScreenHard(props) {
         let tonCost = 0;
 
         debugger;
-        switch(props.order.size) {
+        switch(props.book.size) {
             case ('24*35' || '22*31' || '21*28' ):
                 format1 = 8;
                 format2 = 16;
@@ -68,10 +68,10 @@ function UserScreenHard(props) {
                 format2 = 64;
             return ;
         }
-        luchotNum = (props.order.NumPages) / format1;
-        gilyonotNum = (props.order.NumPages) / format2;
+        luchotNum = (props.book.NumPages) / format1;
+        gilyonotNum = (props.book.NumPages) / format2;
 
-        switch(props.order.size) {
+        switch(props.book.size) {
             case ('24*35' || '22*31' || '21*28' ):
                 luchot = 2832;
             return ;
@@ -83,14 +83,14 @@ function UserScreenHard(props) {
             return ;
         }
 
-        if(props.order.color == 'שחור לבן'){            
+        if(props.book.color == 'שחור לבן'){            
             luchot = luchot * luchotNum;
         }
         else{
             luchot = luchot * luchotNum * 4;
         }
           
-        switch(props.order.size) {
+        switch(props.book.size) {
             case ('24*35' || '22*31' || '21*28' ):
                 print = 2832;
             return ;
@@ -102,9 +102,9 @@ function UserScreenHard(props) {
             return ;
         }
 
-        print = (props.order.NumOfBooks) * print * luchotNum;
+        print = (props.book.NumOfBooks) * print * luchotNum;
 
-        switch(props.order.size) {
+        switch(props.book.size) {
             case ('24*35' ||  '16.5*24.5' || '12*17' ):
                 paper = 7000;
             return ;
@@ -116,7 +116,7 @@ function UserScreenHard(props) {
             return ;            
         }
 
-        switch(props.order.PaperType) {
+        switch(props.book.PaperType) {
             case ('נטול עץ לבן 70 גרם' ):
                 grm = 70;
                 if (paper = 7000){
@@ -273,7 +273,7 @@ function UserScreenHard(props) {
 
         paper1 = (paper * grm * tonCost * format2 * numOfBooks) / 100;
 
-        if(props.order.bindingType == 'סקאי'){
+        if(props.book.bindingType == 'סקאי'){
             if(paper == 7000){
                 switch(format1) {
                     case (8):
@@ -359,7 +359,7 @@ function UserScreenHard(props) {
 
         dekel = dekel * numOfBooks;
         
-        switch(props.order.size) {
+        switch(props.book.size) {
             case ('24*35' || '22*31' || '21*28'||'10*14' ):
                 kat = 1330;
                 line = 1400;
@@ -430,10 +430,10 @@ function UserScreenHard(props) {
 
 const mapStateToProps = (state) => {debugger
     return {
-        order: state.order
+        book: state.book
     };
 };
 
-export default connect(mapStateToProps, { saveOrderDetails })(UserScreenHard);
+export default connect(mapStateToProps, { saveBookDetails })(UserScreenHard);
 
 // export default UserScreenHard;

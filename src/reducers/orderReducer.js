@@ -1,19 +1,23 @@
+// 'bookId' : Number,
+// 	'userId' : {type:mongoose.Types.ObjectId, ref:'user' },
+// 	'orderDate' : Date,
+// 	'orderStatus' : String,
+// 	'orderPrice' : Number,
+// 	'comments' : String
 const initialState = {
-    bookType: "",
-    size: 0,
-    color: "",
-    format: "",
-    pagesNum: 0,
-    paperType: "",
-    quantity: 0,
-    bindingType: "",
-    attribute : ""
+    // bookId: 0,    
+    // userId: 0,
+    // orderDate: "",
+    // orderStatus: "",
+    // orderPrice: 0,
+    // id: 0,
+    // comments:"",
+    id: 0
 }
 
-export default (state = initialState, action) => {
-    // console.log("ACTION", action);
-    if (action.type === "SAVE_ORDER") {
-        return { ...state, ...action.payload };
+export default (state=initialState, action) => {
+    if(action.type === "SAVE_ORDER"){
+        return {...state, ...action.payload};
     }
     return state;
 }

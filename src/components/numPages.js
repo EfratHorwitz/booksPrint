@@ -1,5 +1,5 @@
 import React from 'react';
-import { saveOrderDetails } from '../actions';
+import { saveBookDetails } from '../actions';
 import {connect} from 'react-redux';
 
 function NumPages(props){
@@ -7,7 +7,7 @@ function NumPages(props){
     return(
         <div>
             <label>:מספר עמודים</label><br/>
-            <input type="number" min="10" step="2" onChange={(e) => props.saveOrderDetails({"pagesNum": e.target.value})} />
+            <input type="number" min="10" step="2" onChange={(e) => props.saveBookDetails({"pagesNum": e.target.value})} />
             
         </div>
     )
@@ -19,4 +19,4 @@ function NumPages(props){
 //         orderNumPages: state.order.NumPages
 //     };
 // };
-export default connect(null, { saveOrderDetails })(NumPages);
+export default connect(null, { saveBookDetails })(NumPages);

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { saveOrderDetails } from '../actions';
+import { saveBookDetails } from '../actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import SelectGeneric from './selectGeneric';
@@ -32,7 +32,7 @@ function PaperType() {
         //             labelId="demo-simple-select-outlined-label"
         //             id="demo-simple-select-outlined"
         //             value={2}
-        //             onChange={(e) => props.saveOrderDetails({ "paperType": e.target.value })}
+        //             onChange={(e) => props.saveBookDetails({ "paperType": e.target.value })}
         //             label="Age"
         //         >
         //         {paperTypes?.map(item => {return <MenuItem value={item.name}>{item.name}</MenuItem>})}

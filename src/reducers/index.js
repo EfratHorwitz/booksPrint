@@ -1,8 +1,12 @@
 import {combineReducers} from 'redux'
-import orderReducer from "./orderReducer";
+import bookReducer from "./bookReducer";
 import userReducer from './userReducer';
+import tokenReducer from './tokenReducer';
+import orderReducer from './orderReducer';
 
 export default combineReducers({
-    order: orderReducer,
-    user: userReducer
+    book: bookReducer,
+    user: userReducer,
+    token: tokenReducer,
+    order: orderReducer
 })

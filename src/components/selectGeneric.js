@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { saveOrderDetails } from '../actions';
+import { saveBookDetails } from '../actions';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -24,7 +24,7 @@ function SelectGeneric(props){
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={props.dataList[0]?.name}
-                    onChange={(e) => {debugger;props.saveOrderDetails({ [props.descStr] : e.target.value })}}
+                    onChange={(e) => {debugger;props.saveBookDetails({ [props.descStr] : e.target.value })}}
                     label="Age"
                 >
                     {props.dataList?.map(pc => {return <MenuItem value={pc.name}>{pc.name}</MenuItem>})}
@@ -37,4 +37,4 @@ function SelectGeneric(props){
 
 }
 
-export default connect(null, { saveOrderDetails })(SelectGeneric);
+export default connect(null, { saveBookDetails })(SelectGeneric);

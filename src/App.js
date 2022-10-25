@@ -21,8 +21,9 @@ import UploadFile from './components/uploadFile';
 import Goodby from './components/goodby';
 import MyOrders from './components/myOrders';
 import MyProposals from './components/myProposals';
+import {connect} from "react-redux";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -32,19 +33,26 @@ import {
 
 function App() {
 
+  const [token, setToken] = useState("");
+
   useEffect(() => {
     // fetch("http://localhost:4000/user?user=user1")
     //   .then((res) => res.json())
     //   .then((data) => console.log(data))
     //   .catch((err) => { console.log("error: ", err) });
       // localStorage.setItem('language', 'JavaScript');
+    setToken(localStorage.getItem(("token")));
+
   }, [])
 
   function logout(){
     debugger;
     localStorage.setItem("token", null);
+    setToken(null);
     debugger;
   }
+
+  console.log(token?"true":"false");
 
   return (
 //     <div>
@@ -54,8 +62,8 @@ function App() {
     <Router>
       <div>
       {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >להתחברות</a> */}
-      <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a><br/>
-      <a href="http://localhost:3000/" style={{display: localStorage.getItem("token")?"inline-block":"none"}} onClick={logout}>להתנתק</a>
+      <a href="http://localhost:3000/userProfile" style={{display: token?"inline-block":"none"}} >הפרופיל שלי</a><br/>
+      {/* <a href="http://localhost:3000/" style={{display: token?"inline-block":"none"}} onClick={logout}>להתנתק</a> */}
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -124,4 +132,11 @@ function App() {
   )
 }
 
-export default App;
+// export default App;
+
+const mapStateToProps = (state) => {
+  return {
+      token: state.token
+  };
+};
+export default connect(mapStateToProps)(App);

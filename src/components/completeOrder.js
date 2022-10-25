@@ -4,10 +4,12 @@ import Button from '@material-ui/core/Button';
 // import TextField from '@material-ui/core/TextField';
 // import { useHistory } from "react-router-dom"
 import axios from "axios";
-import {saveOrderDetails} from '../actions/saveOrderDetails';
+import {saveBookDetails} from '../actions/saveBookDetails';
+import { saveOrderDetails } from '../actions';
 import {useHistory} from 'react-router-dom';
+import {connect} from 'react-redux';
 
-function CompleteOrder() {
+function CompleteOrder(props) {
 debugger;
     const [orderToInsert, setOrderToInsert] = useState({'comment':'trying to post order'});
     debugger;
@@ -31,10 +33,15 @@ debugger;
     //     debugger;
     // }
 
+    useEffect(()=>{
+        setOrderToInsert({comments: "monday night"});
+        debugger;
+    },[])
+
     function postOrder(){
         debugger;
         axios.post("http://localhost:4000/order", orderToInsert)
-        .then((res)=> {saveOrderDetails(res.data.order); finishedOrder(); console.log(res.data.order); 
+        .then((res)=> {props.saveOrderDetails(res.data); finishedOrder(); console.log(res.data.order); 
         //localStorage.setItem('token', JSON.stringify(res.data.token))
         })
         .catch((err) => { console.log("error: ", err) });
@@ -50,4 +57,5 @@ debugger;
         </div>
     )
 }
-export default CompleteOrder;
+// export default CompleteOrder;
+export default connect(null, {saveOrderDetails})(CompleteOrder);

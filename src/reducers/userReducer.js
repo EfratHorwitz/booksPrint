@@ -1,10 +1,10 @@
 const initialState = {
-    firstName: "",
-    lastName: "",
+    fullname: "",    
     phone: 0,
     email: "",
     username: "",
-    password: ""
+    password: "",
+    id: 0
 }
 
 export default (state=initialState, action) => {
