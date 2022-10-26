@@ -4,7 +4,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
     // console.log("ACTION", action);
-    if (action.type === "TOKEN") {
+    if (action.type === "SAVE_TOKEN") {
         return { ...state, ...action.payload };
     }
     return state;

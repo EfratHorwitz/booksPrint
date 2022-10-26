@@ -41,7 +41,7 @@ function Registration(props) {
     //   .then((res) => {debugger; saveUserDetails(res.data)})
       .then((res)=> {
         props.saveUserDetails(res.data.user); 
-        // props.saveTokenDetails({"token":JSON.stringify(res.data.token)});
+        props.saveTokenDetails({token: JSON.stringify(res.data.token)});
          console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token)) })
       .then(()=>{registration();})
     // .then((res)=> {console.log("loginNewUser", res.data)})

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import PriceProposal from './priceProposal';
 import { useHistory } from "react-router-dom";
 
+
 function TmpAfterReg(props){
 
     const[newEmail, setNewEmail] = useState();

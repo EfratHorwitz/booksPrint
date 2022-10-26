@@ -33,8 +33,17 @@ debugger;
     //     debugger;
     // }
 
+    /*
+     bookId : req.body.bookId,
+			userId : req.body.userId,
+			orderDate : req.body.orderDate,
+			orderStatus : req.body.orderStatus,
+			orderPrice : req.body.orderPrice,
+			comments : req.body.comments
+     */
+
     useEffect(()=>{
-        setOrderToInsert({comments: "monday night"});
+        setOrderToInsert({comments: "monday night", orderStatus: "new" });
         debugger;
     },[])
 

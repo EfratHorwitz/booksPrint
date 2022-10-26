@@ -1,7 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux'
+
 // import { makeStyles } from '@material-ui/core/styles';
 // import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import React, {useState, useEffect} from 'react';
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 // import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom";
@@ -15,15 +16,46 @@ import PaperType from './paperType';
 import BindingTypeHard from './bindingTypeHard';
 import printOptions from './printOptions';
 import numOfBooks from './numOfBooks';
+import axios from 'axios';
 
 function UserScreenHard(props) {
 
     const history = useHistory();
-    // const [book, setbook] = useState();
+    // const [bookState, setbookState] = useState({});
+    /*
+    function loginNewUser(user){ //no need for this "user"
+        debugger;
+        axios.post("http://localhost:4000/user", userToInsert)
+      .then((res)=> {
+        props.saveUserDetails(res.data.user); 
+        props.saveTokenDetails({token: JSON.stringify(res.data.token)});
+         console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token)) })
+      .then(()=>{registration();})
+      .catch((err) => { console.log("error: ", err) });
+      debugger;
+    }
+    */
 
+
+    function postBook(){
+        debugger;
+        axios.post("http://localhost:4000/book", props.book)
+        .then((res)=> {console.log("saving book", res.data)})
+        .catch((err) => { console.log("error: ", err) });
+    }
+    
+    // useEffect(()=>{
+    //     debugger;
+    //     setbookState(props.book);
+    //     debugger;
+    //     console.log("book", bookState);
+    // }, [])
 
     function endChoose() {
         debugger;
+
+        postBook();
+
         if(localStorage.getItem('token') != null)
             history.push("/tmpAfterReg");
             else(
@@ -55,6 +87,7 @@ function UserScreenHard(props) {
 
         debugger;
         switch(props.book.size) {
+            
             case ('24*35' || '22*31' || '21*28' ):
                 format1 = 8;
                 format2 = 16;
@@ -68,7 +101,21 @@ function UserScreenHard(props) {
                 format2 = 64;
             return ;
         }
+// debugger
+        // if(props.book.size === "24*35" || props.book.size === "22*31" || props.book.size === "21*28"){
+        //     format1 = 8;
+        //     format2 = 16;
+        // } else if(props.book.size === "16.5*24.5" || props.book.size === '15*23' || props.book.size === '14*21'){
+        //     format1 = 16;
+        //     format2 = 32;
+        // }else{
+        //     format1 = 32;
+        //     format2 = 64;
+        // }
+
+        debugger;
         luchotNum = (props.book.NumPages) / format1;
+        debugger;
         gilyonotNum = (props.book.NumPages) / format2;
 
         switch(props.book.size) {
@@ -390,7 +437,7 @@ function UserScreenHard(props) {
         // let format2 = 0;
         // let grm = 0;
         // let tonCost = 0;
-
+debugger;
         return totalSum;
     }
 
@@ -419,7 +466,8 @@ function UserScreenHard(props) {
                 <BindingTypeHard/>
             </div><br></br>
 
-            <Button variant="contained" color="primary" size="large" onClick={endChoose} > המשך </Button>
+            <Button type="button" variant="contained" color="primary" size="large" onClick={endChoose} > המשך </Button>
+            <Button type="button" variant="contained" color="primary" size="large" onClick={calcCost} > לחישוב הצעה </Button>
             {/* endChoose */}
 
             {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}

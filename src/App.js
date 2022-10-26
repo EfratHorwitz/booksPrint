@@ -21,8 +21,8 @@ import UploadFile from './components/uploadFile';
 import Goodby from './components/goodby';
 import MyOrders from './components/myOrders';
 import MyProposals from './components/myProposals';
+import PaperType from './components/paperType';
 import {connect} from "react-redux";
-
 import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
@@ -64,6 +64,8 @@ function App() {
       {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >להתחברות</a> */}
       <a href="http://localhost:3000/userProfile" style={{display: token?"inline-block":"none"}} >הפרופיל שלי</a><br/>
       {/* <a href="http://localhost:3000/" style={{display: token?"inline-block":"none"}} onClick={logout}>להתנתק</a> */}
+      <a href="http://localhost:3000/myOrders" >ההזמנות שלי</a>
+      {/* <a href="http://localhost:3000/userProfile" onClick={} >הצעות מחיר שלי</a> */}
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -123,7 +125,10 @@ function App() {
             <Goodby />
           </Route>
           <Route path="/myOrders">
-            <Goodby />
+            <MyOrders />
+          </Route>
+          <Route path="/paperType">
+            <PaperType />
           </Route>
         </Switch>
         
