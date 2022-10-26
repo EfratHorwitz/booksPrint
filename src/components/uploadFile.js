@@ -28,7 +28,7 @@ function UploadFile() {
           <hr></hr>
           <form onSubmit={handleSubmit}>
             <input type='file' name='file' onChange={handleFileChange}></input>
-            <button type='submit'>Submit</button>
+            <button type='button'>Submit</button>
           </form>
           {status && <h4>{status}</h4>}
         </div>

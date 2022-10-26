@@ -84,7 +84,7 @@ function Trial() {
             </h3>
             <div>
                 <input type="file" onChange={onFileChange} />
-                <button onClick={onFileUpload}>
+                <button type="button" onClick={onFileUpload}>
                   Upload!
                 </button>
             </div>

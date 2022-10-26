@@ -42,7 +42,7 @@ function Registration(props) {
       .then((res)=> {
         props.saveUserDetails(res.data.user); 
         props.saveTokenDetails({token: JSON.stringify(res.data.token)});
-         console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token)) })
+         console.log(res.data.user); localStorage.setItem('token', res.data.token) })
       .then(()=>{registration();})
     // .then((res)=> {console.log("loginNewUser", res.data)})
     //   .then((res)=> {debugger; console.log(res.data.token)})
@@ -91,7 +91,7 @@ function Registration(props) {
                 {/* <label htmlFor="phone" >:מספר טלפון</label><br />
                 <input type="phone" id="phone" name="phone" onChange={(e) => setParam("phone", e.target.value)}></input><br /><br /> */}
 
-                <Button variant="contained" color="primary" size="large" onClick={() => loginNewUser(userToInsert)} >רישום</Button>
+                <Button type="button" variant="contained" color="primary" size="large" onClick={() => loginNewUser(userToInsert)} >רישום</Button>
             </form>
             {/* <div>
                 <Button variant="contained" color="primary" size="large" onClick={() => loginNewUser(userToInsert)} >רישום</Button>

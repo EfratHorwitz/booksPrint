@@ -40,7 +40,7 @@ function UserScreenHard(props) {
     function postBook(){
         debugger;
         axios.post("http://localhost:4000/book", props.book)
-        .then((res)=> {console.log("saving book", res.data)})
+        .then((res)=> {props.saveBookDetails(res.data)})
         .catch((err) => { console.log("error: ", err) });
     }
     

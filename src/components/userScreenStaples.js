@@ -60,7 +60,7 @@ function UserScreenStaples() {
                 <BindingTypeStaples/>
             </div><br/>
 
-            <Button variant="contained" color="primary" size="large" onClick={endChoose}> המשך </Button>
+            <Button type="button" variant="contained" color="primary" size="large" onClick={endChoose}> המשך </Button>
             
             {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
             

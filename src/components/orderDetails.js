@@ -32,7 +32,7 @@ function OrderDetails({order}) {
             {orderToShow.deadLine}
             </label>
 
-            <Button variant="contained" color="primary" size="large"> עדכון סטטוס הזמנה</Button>
+            <Button type="button" variant="contained" color="primary" size="large"> עדכון סטטוס הזמנה</Button>
 
            
         </div>

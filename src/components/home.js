@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 function Home() {
     let history = useHistory();
-    
+    // let date = new Date();
     function manager() {
         history.push("/managerScreen");
     }
@@ -17,11 +17,11 @@ function Home() {
         <div>
             <label >
                 ברוכים הבאים לטקסט רץ -
-                האתר שיעשה לך את זה בקלות
+                האתר שיעשה לך את זה בקלות                
             </label>
             <br/><br/>
-            <Button variant="contained" color="primary" size="large" onClick={manager}>כניסת מנהל</Button>
-            <Button variant="contained" color="primary" size="large" onClick={getBid}>לקבלת הצעת מחיר</Button>
+            <Button type="button" variant="contained" color="primary" size="large" onClick={manager}>כניסת מנהל</Button>
+            <Button type="button" variant="contained" color="primary" size="large" onClick={getBid}>לקבלת הצעת מחיר</Button>
             {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
         </div>
     )

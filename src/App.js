@@ -22,54 +22,88 @@ import Goodby from './components/goodby';
 import MyOrders from './components/myOrders';
 import MyProposals from './components/myProposals';
 import PaperType from './components/paperType';
-import {connect} from "react-redux";
+import Login from './components/login';
+import { connect } from "react-redux";
 import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  useHistory
 } from "react-router-dom"
+import axios from 'axios';
+import { saveUserDetails } from './actions/saveUserDetails';
+import { saveTokenDetails } from './actions/saveTokenDetails';
+import SubApp from './components/subApp';
 
 
-function App() {
+function App(props) {
 
+  // let history = useHistory();
   const [token, setToken] = useState("");
+
+  // function gotoReg() {
+  //   history.push("/registration");
+  // }
+
+  // function getUserByToken(token) {
+  //   debugger;
+  //   axios.post("http://localhost:4000/user/verify", {
+  //     token: token
+  //   })
+  //     // .then(res => {bindingTypes = res.data}) 
+  //     .then(res => { props.saveUserDetails(res.data.user) })
+  //     .then(() => { props.saveTokenDetails(token); gotoReg() })
+  //     // .then(()=>{console.log("conslog", myOrders)})
+  //     .catch(() => {
+  //       console.log("registration from getUserByToken:");
+  //       // gotoReg()
+  //     })
+  // }
 
   useEffect(() => {
     // fetch("http://localhost:4000/user?user=user1")
     //   .then((res) => res.json())
     //   .then((data) => console.log(data))
     //   .catch((err) => { console.log("error: ", err) });
-      // localStorage.setItem('language', 'JavaScript');
-    setToken(localStorage.getItem(("token")));
-
+    // localStorage.setItem('language', 'JavaScript');
+    // setToken(localStorage.getItem(("token")));
+    // debugger;
+    // let tok = localStorage.getItem('token');
+    // // ()=>{tok?history.push("/login"):history.push("/registration")}
+    // if (tok) {
+    //   getUserByToken(tok)
+    // } else {
+    //   history.push("/registration");
+    // }
   }, [])
 
-  function logout(){
+  function logout() {
     debugger;
     localStorage.setItem("token", null);
     setToken(null);
     debugger;
   }
 
-  console.log(token?"true":"false");
+  console.log(token ? "true" : "false");
 
   return (
-//     <div>
-// <Trial/>
-//     </div>
+    //     <div>
+    // <Trial/>
+    //     </div>
 
     <Router>
       <div>
-      {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >להתחברות</a> */}
-      <a href="http://localhost:3000/userProfile" style={{display: token?"inline-block":"none"}} >הפרופיל שלי</a><br/>
-      {/* <a href="http://localhost:3000/" style={{display: token?"inline-block":"none"}} onClick={logout}>להתנתק</a> */}
-      <a href="http://localhost:3000/myOrders" >ההזמנות שלי</a>
-      {/* <a href="http://localhost:3000/userProfile" onClick={} >הצעות מחיר שלי</a> */}
+        <a href="http://localhost:3000/userProfile" >להתחברות</a><br />
+        <a href="http://localhost:3000/userProfile" style={{ display: token ? "inline-block" : "none" }} >הפרופיל שלי</a><br />
+        <a href="http://localhost:3000/" style={{ display: token ? "inline-block" : "none" }}>ליציאה</a><br />
+        <a href="http://localhost:3000/myOrders" >ההזמנות שלי</a><br />
+        <a href="http://localhost:3000/myProposals" >הצעות מחיר שלי</a>
+        <SubApp/>
         <Switch>
           <Route path="/" exact>
             <Home />
-          </Route>          
+          </Route>
           <Route path="/managerScreen">
             <ManagerScreen />
           </Route>
@@ -96,13 +130,13 @@ function App() {
           </Route>
           <Route path="/userProfile">
             <UserProfile />
-          </Route>          
+          </Route>
           <Route path="/bindingTypeHard">
             <BindingTypeHard />
           </Route>
           <Route path="/bookFormat">
             <BookFormat />
-          </Route>          
+          </Route>
           <Route path="/sizeTypes">
             <BookSize />
           </Route>
@@ -114,7 +148,7 @@ function App() {
           </Route>
           <Route path="/extras">
             <Extras />
-          </Route>          
+          </Route>
           <Route path="/priceProposal">
             <PriceProposal />
           </Route>
@@ -130,8 +164,14 @@ function App() {
           <Route path="/paperType">
             <PaperType />
           </Route>
+          <Route path="/myProposals">
+            <MyProposals />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
         </Switch>
-        
+
       </div>
     </Router>
   )
@@ -141,7 +181,7 @@ function App() {
 
 const mapStateToProps = (state) => {
   return {
-      token: state.token
+    token: state.token
   };
 };
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { saveTokenDetails, saveUserDetails })(App);

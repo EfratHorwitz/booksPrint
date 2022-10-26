@@ -22,7 +22,7 @@ function TmpAfterReg(props){
             <div>
                 {/* <PriceProposal/> */}
             </div>
-            <button onClick={finishOrder} >מעוניין להמשיך לביצוע הזמנה?</button>
+            <button type="button" onClick={finishOrder} >מעוניין להמשיך לביצוע הזמנה?</button>
         </div>
         
     )

@@ -33,24 +33,30 @@ debugger;
     //     debugger;
     // }
 
-    /*
-     bookId : req.body.bookId,
-			userId : req.body.userId,
-			orderDate : req.body.orderDate,
-			orderStatus : req.body.orderStatus,
-			orderPrice : req.body.orderPrice,
-			comments : req.body.comments
-     */
+    // useEffect(()=>{
+    //     setOrderToInsert({comments: "monday night", orderStatus: "new" });
+    //     debugger;
+    // },[])
 
-    useEffect(()=>{
-        setOrderToInsert({comments: "monday night", orderStatus: "new" });
-        debugger;
-    },[])
+    // bookId : req.body.bookId,
+    // userId : req.body.userId,
+    // orderDate : req.body.orderDate,
+    // orderStatus : req.body.orderStatus,
+    // orderPrice : req.body.orderPrice,
+    // comments : req.body.comments
 
     function postOrder(){
         debugger;
-        axios.post("http://localhost:4000/order", orderToInsert)
-        .then((res)=> {props.saveOrderDetails(res.data); finishedOrder(); console.log(res.data.order); 
+        axios.post("http://localhost:4000/order", 
+        // {orderStatus: "trial"})
+        {
+            bookId: props.currentBook.id,
+            userId: props.currentUser.id,
+            orderDate: new Date(),
+            orderStatus: "new",
+            orderPrice: props.currentBook.price
+        })
+        .then((res)=> {props.saveOrderDetails(res.data); finishedOrder(); console.log("cons from postOrder", res.data.order); 
         //localStorage.setItem('token', JSON.stringify(res.data.token))
         })
         .catch((err) => { console.log("error: ", err) });
@@ -59,12 +65,20 @@ debugger;
 
     return (
         <div>
-            <Button variant="contained" color="primary" size="large">שמירת קובץ פנים הספר</Button>
-            <Button variant="contained" color="primary" size="large">שמירת קובץ כריכת הספר</Button>
+            <Button type="button" variant="contained" color="primary" size="large">שמירת קובץ פנים הספר</Button>
+            <Button type="button" variant="contained" color="primary" size="large">שמירת קובץ כריכת הספר</Button>
             {/* <button onClick={plaster}></button> */}
-            <Button variant="contained" color="primary" size="large" onClick={postOrder}>לסיום הזמנה</Button>    
+            <Button type="button" variant="contained" color="primary" size="large" onClick={postOrder}>לסיום הזמנה</Button>    
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        currentBook: state.book,
+        currentUser: state.user
+    };
+};
+
 // export default CompleteOrder;
-export default connect(null, {saveOrderDetails})(CompleteOrder);
+export default connect(mapStateToProps, {saveOrderDetails})(CompleteOrder);

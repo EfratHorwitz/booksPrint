@@ -7,7 +7,9 @@ const initialState = {
     paperType: "",
     quantity: 0,
     bindingType: "",
-    attribute : ""
+    attribute : "",
+    price: 0,
+    id: 0
 }
 
 export default (state = initialState, action) => {
