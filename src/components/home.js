@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 // import TextField from '@material-ui/core/TextField';
 import { useHistory } from "react-router-dom";
 
+import image1 from '../assets/1.png';
+
 function Home() {
     let history = useHistory();
     // let date = new Date();
@@ -15,13 +17,10 @@ function Home() {
     }
     return (
         <div>
-            <label >
-                ברוכים הבאים לטקסט רץ -
-                האתר שיעשה לך את זה בקלות                
-            </label>
-            <br/><br/>
-            <Button type="button" variant="contained" color="primary" size="large" onClick={manager}>כניסת מנהל</Button>
-            <Button type="button" variant="contained" color="primary" size="large" onClick={getBid}>לקבלת הצעת מחיר</Button>
+            <img src={image1} style={{
+                width: '75%',
+                marginLeft: '200px'
+            }} onClick={getBid} />
             {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
         </div>
     )

@@ -40,7 +40,7 @@ import SubApp from './components/subApp';
 function App(props) {
 
   // let history = useHistory();
-  // const [token, setToken] = useState("");
+  const [token, setToken] = useState("");
 
   // function gotoReg() {
   //   history.push("/registration");
@@ -121,16 +121,17 @@ function App(props) {
     //     <div>
     // <Trial/>
     //     </div>
-    // style={{ display: token ? "inline-block" : "none" }}
+
     <Router>
       <div>
-        <SubApp/>
-        <a href="http://localhost:3000/userProfile" style={{ display: props.token? "none" :"inline-block" }} >להתחברות</a><br />
-        {/* <a href="http://localhost:3000/userProfile" >הפרופיל שלי</a><br /> */}
-        <a href="http://localhost:3000/" style={{ display: props.token != "null" ? "inline-block" : "none" }} onClick={logout} >ליציאה</a><br />
-        <a href="http://localhost:3000/myOrders" style={{ display: props.token ? "inline-block" : "none" }} >ההזמנות שלי</a><br />
-        <a href="http://localhost:3000/myProposals" style={{ display: props.token ? "inline-block" : "none" }} >הצעות מחיר שלי</a>
-        
+        {/* <div style={{display:'flex'}}> */}
+        {/* <a href="http://localhost:3000/userProfile" >להתחברות</a><br />
+        <a href="http://localhost:3000/userProfile" style={{ display: token ? "inline-block" : "none" }} >הפרופיל שלי</a><br />
+        <a href="http://localhost:3000/" style={{ display: token ? "inline-block" : "none" }}>ליציאה</a><br />
+        <a href="http://localhost:3000/myOrders" >ההזמנות שלי</a><br />
+        <a href="http://localhost:3000/myProposals" >הצעות מחיר שלי</a> */}
+        {/* </div> */}
+        <SubApp />
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -202,6 +203,14 @@ function App(props) {
             <Login />
           </Route>
         </Switch>
+        <div style={{display:'flex',justifyContent:'space-around', alignItems:'center'}}>
+          <a href="http://localhost:3000/userProfile" >להתחברות</a><br />
+          <a href="http://localhost:3000/userProfile" style={{ display: token ? "inline-block" : "none" }} >הפרופיל שלי</a><br />
+          <a href="http://localhost:3000/" style={{ display: token ? "inline-block" : "none" }}>ליציאה</a><br />
+          <a href="http://localhost:3000/myOrders" >ההזמנות שלי</a><br />
+          <a href="http://localhost:3000/myProposals" >הצעות מחיר שלי</a>
+        </div>
+
       </div>
     </Router>
   )
