@@ -21,13 +21,6 @@ function Home() {
                 width: '75%',
                 marginLeft: '200px'
             }} onClick={getBid} />
-            {/* <div>
-                <a href="http://localhost:3000/userProfile" >להתחברות</a><br />
-                <a href="http://localhost:3000/userProfile" style={{ display: token ? "inline-block" : "none" }} >הפרופיל שלי</a><br />
-                <a href="http://localhost:3000/" style={{ display: token ? "inline-block" : "none" }}>ליציאה</a><br />
-                <a href="http://localhost:3000/myOrders" >ההזמנות שלי</a><br />
-                <a href="http://localhost:3000/myProposals" >הצעות מחיר שלי</a>
-            </div> */}
             {/* <a href="http://localhost:3000/userProfile" style={{display: localStorage.getItem("token")?"inline-block":"none"}} >הפרופיל שלי</a> */}
         </div>
     )
