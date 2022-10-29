@@ -35,15 +35,12 @@ function UserScreenStaples() {
             <div>
                 <BookSize/>
             </div><br></br>
-
             <div>
                 <BookFormat/>
             </div><br></br>
-
             <div>
                 <NumPages/>
             </div><br></br>
-
             <div>
                 <PaperType/>
             </div><br></br>
