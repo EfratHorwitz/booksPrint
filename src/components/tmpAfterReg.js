@@ -17,7 +17,8 @@ function TmpAfterReg(props){
             <div>
             !שלום
             <br/>
-            הצעת מחיר נשלחה לכתובת המייל שהזנת ברישום
+            המחיר הוא:
+            {localStorage.getItem('sum')}
             </div>
             <div>
                 {/* <PriceProposal/> */}

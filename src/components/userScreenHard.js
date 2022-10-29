@@ -57,7 +57,7 @@ function UserScreenHard(props) {
         let newBook = props.book;
         newBook.userId = localStorage.getItem("userid");
         postBook(newBook);
-
+        calcCost();
         if (localStorage.getItem('token') != null)
             history.push("/tmpAfterReg");
         else (
@@ -454,6 +454,7 @@ function UserScreenHard(props) {
 
         totalSum = luchot + print + paper + dekel + kat + line;
         debugger;
+        localStorage.setItem('sum', totalSum);
         return totalSum;
     }
 
