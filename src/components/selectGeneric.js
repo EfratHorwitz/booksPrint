@@ -24,7 +24,7 @@ function SelectGeneric(props){
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={props.dataList[0]?.name}
-                    onChange={(e) => {debugger;props.saveBookDetails({ [props.descStr] : e.target.value })}}
+                    onChange={(e) => {props.saveBookDetails({ [props.descStr] : e.target.value })}}
                     label="Age"
                 >
                     {props.dataList?.map(pc => {return <MenuItem value={pc.name}>{pc.name}</MenuItem>})}

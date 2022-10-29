@@ -3,13 +3,14 @@ const initialState = {
     size: 0,
     color: "",
     format: "",
-    pagesNum: 0,
+    format: 0,
     paperType: "",
     quantity: 0,
     bindingType: "",
     attribute : "",
     price: 0,
-    id: 0
+    userId: 0
+    // id: 0
 }
 
 export default (state = initialState, action) => {

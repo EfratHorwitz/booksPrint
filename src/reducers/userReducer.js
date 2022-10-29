@@ -4,7 +4,8 @@ const initialState = {
     email: "",
     username: "",
     password: "",
-    id: 0
+    orders: []
+    // id: 0
 }
 
 export default (state=initialState, action) => {
