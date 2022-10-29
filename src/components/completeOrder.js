@@ -10,65 +10,86 @@ import {useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 function CompleteOrder(props) {
-debugger;
-    const [orderToInsert, setOrderToInsert] = useState({'comment':'trying to post order'});
-    debugger;
+// debugger;
+    const [orderToInsert, setOrderToInsert] = useState();
+    const [userToUpdate, setUserToUpdate] = useState();
+    // debugger;
     let history = useHistory();
 
     function finishedOrder() {
+        postOrder();
         history.push("/goodby");
     }
-    // 'bookId' : Number,
-	// 'userId' : {type:mongoose.Types.ObjectId, ref:'user' },
-	// 'orderDate' : Date,
-	// 'orderStatus' : String,
-	// 'orderPrice' : Number,
-	// 'comments' : String
-    // let orderExmp = {
-    //     'comments':"trying to post order"
-    // }
-    // function plaster(){
-    //     debugger;
-    //     setOrderToInsert({...orderToInsert, ...orderExmp})
-    //     debugger;
-    // }
-
-    // useEffect(()=>{
-    //     setOrderToInsert({comments: "monday night", orderStatus: "new" });
-    //     debugger;
-    // },[])
-
-    // bookId : req.body.bookId,
-    // userId : req.body.userId,
-    // orderDate : req.body.orderDate,
-    // orderStatus : req.body.orderStatus,
-    // orderPrice : req.body.orderPrice,
-    // comments : req.body.comments
+    
+    useEffect(()=>{
+        // let bookid = localStorage.getItem('bookId');
+        // if(bookid){
+        //     props.saveBookDetails('')
+        // }
+        // debugger;
+        setOrderToInsert({            
+            bookId: localStorage.getItem('bookId'),
+            userId: localStorage.getItem('userid'),
+            // orderDate: new Date(),
+            orderStatus: "real!!!!",
+            orderPrice: props.currentBook.price
+        })
+        // debugger
+        // setUserToUpdate(props.currentUser)
+        // debugger;
+    }, [])
+debugger;
+    let curId = props.currentUser._id;
+    debugger;
 
     function postOrder(){
         debugger;
-        axios.post("http://localhost:4000/order", 
-        // {orderStatus: "trial"})
-        {
-            bookId: props.currentBook.id,
-            userId: props.currentUser.id,
-            orderDate: new Date(),
-            orderStatus: "new",
-            orderPrice: props.currentBook.price
-        })
-        .then((res)=> {props.saveOrderDetails(res.data); finishedOrder(); console.log("cons from postOrder", res.data.order); 
-        //localStorage.setItem('token', JSON.stringify(res.data.token))
-        })
-        .catch((err) => { console.log("error: ", err) });
+        let newOrders = props.currentUser.orders;
+        debugger
+        newOrders.push(orderToInsert);
+        props.currentUser.orders = newOrders;
         debugger;
+        // let newUser = {
+        //     fullname: props.currentUser.fullname,
+        //     username: props.currentUser.username,
+        //     password: props.currentUser.password,
+        //     email: props.currentUser.email,
+        //     orders: props.currentUser.orders,
+        // }
+        
+        // axios.put("http://localhost:4000/user/635af4e664f1ddf01622023f", newUser)
+        axios.post("http://localhost:4000/order", orderToInsert)
+        // 635af4e664f1ddf01622023f
+        .then((res)=> {props.saveOrderDetails(res.data);
+        // console.log("cons from postOrder", res.data.order); 
+        })
+        .catch((err) => { console.log("error: ", err) });        
     }
 
+    // axios.post("http://localhost:4000/order", orderToInsert)
+    // // {orderStatus: "trial"})            
+    //     // bookId: localStorage.getItem('bookId'),
+    //     // userId: props.currentUser._id,
+    //     // // orderDate: new Date(),
+    //     // // orderStatus: "new",
+    //     // orderPrice: props.currentBook.price
+    
+    // .then((res)=> {props.saveOrderDetails(res.data);
+    //     // finishedOrder();
+    //     console.log("cons from postOrder", res.data.order); 
+    // //localStorage.setItem('token', JSON.stringify(res.data.token))
+    // })
+    // .catch((err) => { console.log("error: ", err) });
+    // debugger;
+
     return (
+        
         <div>
+        
             <Button type="button" variant="contained" color="primary" size="large">שמירת קובץ פנים הספר</Button>
             <Button type="button" variant="contained" color="primary" size="large">שמירת קובץ כריכת הספר</Button>
             {/* <button onClick={plaster}></button> */}
-            <Button type="button" variant="contained" color="primary" size="large" onClick={postOrder}>לסיום הזמנה</Button>    
+            <Button type="button" variant="contained" color="primary" size="large" onClick={finishedOrder}>לסיום הזמנה</Button>    
         </div>
     )
 }

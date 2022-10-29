@@ -19,22 +19,22 @@ function SubApp(props){
         })
           // .then(res => {bindingTypes = res.data}) 
           .then(res => { props.saveUserDetails(res.data);})
-          .then(() => { props.saveTokenDetails(token);})
+          .then(() => { props.saveTokenDetails(JSON.stringify(token));})
           // .then(()=>{console.log("conslog", myOrders)})
-          .catch(() => {
-            console.log("registration from getUserByToken:");
+          .catch((err) => {console.log("registration from getUserByToken:", err);
             // gotoReg()
           })
       }
 
     useEffect(() => {
         debugger;
-        let tok = localStorage.getItem('token');
+        // let tok = localStorage.getItem('token');
         // ()=>{tok?history.push("/login"):history.push("/registration")}
-        if (tok) {
-          getUserByToken(tok)
+        if (localStorage.getItem('token')) {
+           getUserByToken(localStorage.getItem('token'))
         } else {
-          history.push("/registration");
+        //   history.push("/nothing");
+        //   return;
         }
       }, [])
 

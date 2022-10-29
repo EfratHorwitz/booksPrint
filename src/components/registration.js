@@ -52,7 +52,7 @@ function Registration(props) {
     }
     // localStorage.setItem('itemsArray', JSON.stringify(oldItems));
     
-   const setParam = (key,val) => {
+    const setParam = (key,val) => {
     setUserToInsert({...userToInsert, [key]: val})
     // props.saveUserDetails({key : val});
     }

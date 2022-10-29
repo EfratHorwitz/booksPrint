@@ -40,7 +40,7 @@ import SubApp from './components/subApp';
 function App(props) {
 
   // let history = useHistory();
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
 
   // function gotoReg() {
   //   history.push("/registration");
@@ -78,28 +78,59 @@ function App(props) {
     // }
   }, [])
 
+  
+//   function getUserByToken(token) {
+//     debugger;
+//     axios.post("http://localhost:4000/user/verify", {
+//       token: token
+//     })
+//       // .then(res => {bindingTypes = res.data}) 
+//       .then(res => { props.saveUserDetails(res.data);})
+//       .then(() => { props.saveTokenDetails(JSON.stringify(token));})
+//       // .then(()=>{console.log("conslog", myOrders)})
+//       .catch((err) => {console.log("registration from getUserByToken:", err);
+//         // gotoReg()
+//       })
+//   }
+
+// useEffect(() => {
+//     debugger;
+//     // let tok = localStorage.getItem('token');
+//     // ()=>{tok?history.push("/login"):history.push("/registration")}
+//     if (localStorage.getItem('token')) {
+//        getUserByToken(localStorage.getItem('token'))
+//     } else {
+//       // history.push("/registration");
+//       return;
+//     }
+//   }, [])
+
   function logout() {
     debugger;
-    localStorage.setItem("token", null);
-    setToken(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("bookId");
+    localStorage.removeItem("userid");
+    // setToken(null);
+    props.saveTokenDetails(null);
     debugger;
   }
 
-  console.log(token ? "true" : "false");
+  console.log(props.token ? "props.token true" : "props.token false");
 
   return (
     //     <div>
     // <Trial/>
     //     </div>
-
+    // style={{ display: token ? "inline-block" : "none" }}
     <Router>
       <div>
-        <a href="http://localhost:3000/userProfile" >להתחברות</a><br />
-        <a href="http://localhost:3000/userProfile" style={{ display: token ? "inline-block" : "none" }} >הפרופיל שלי</a><br />
-        <a href="http://localhost:3000/" style={{ display: token ? "inline-block" : "none" }}>ליציאה</a><br />
-        <a href="http://localhost:3000/myOrders" >ההזמנות שלי</a><br />
-        <a href="http://localhost:3000/myProposals" >הצעות מחיר שלי</a>
         <SubApp/>
+        <a href="http://localhost:3000/userProfile" style={{ display: props.token? "none" :"inline-block" }} >להתחברות</a><br />
+        {/* <a href="http://localhost:3000/userProfile" >הפרופיל שלי</a><br /> */}
+        <a href="http://localhost:3000/" style={{ display: props.token != "null" ? "inline-block" : "none" }} onClick={logout} >ליציאה</a><br />
+        <a href="http://localhost:3000/myOrders" style={{ display: props.token ? "inline-block" : "none" }} >ההזמנות שלי</a><br />
+        <a href="http://localhost:3000/myProposals" style={{ display: props.token ? "inline-block" : "none" }} >הצעות מחיר שלי</a>
+        
         <Switch>
           <Route path="/" exact>
             <Home />

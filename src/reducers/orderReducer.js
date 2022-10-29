@@ -5,14 +5,14 @@
 // 	'orderPrice' : Number,
 // 	'comments' : String
 const initialState = {
-    // bookId: 0,    
-    // userId: 0,
-    // orderDate: "",
-    // orderStatus: "",
-    // orderPrice: 0,
+    bookId: 0,    
+    userId: 0,
+    orderDate: "",
+    orderStatus: "",
+    orderPrice: 0,
     // id: 0,
-    // comments:"",
-    id: 0
+    comments:"",
+    // id: 0
 }
 
 export default (state=initialState, action) => {
