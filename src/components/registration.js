@@ -117,7 +117,7 @@ function Registration(props) {
                 <TextField dir="rtl" id="standard-basic" label="סיסמא:" variant="standard" onChange={(e) => setParam("password", e.target.value)}/>
                 {/* <label htmlFor="email" >:כתובת מייל</label><br />
                 <input type="email" id="email" name="email" onChange={(e) => setParam("email", e.target.value)}></input><br /><br /> */}
-                <TextField id="standard-basic" label="כתובת מייל:" variant="standard" onChange={(e) => setParam("email", e.target.value)}/><br/><br/>
+                <TextField id="standard-basic" label=":כתובת מייל" variant="standard" onChange={(e) => setParam("email", e.target.value)}/><br/><br/>
                 {/* <label htmlFor="phone" >:מספר טלפון</label><br />
                 <input type="phone" id="phone" name="phone" onChange={(e) => setParam("phone", e.target.value)}></input><br /><br /> */}
                 <img src={image23} onClick={registration}/>
