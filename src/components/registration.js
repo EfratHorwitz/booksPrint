@@ -89,6 +89,7 @@ function Registration(props) {
                 marginLeft: '200px',
                 // marginTop: '20px'
             }} />
+            
             {/* <img src={image22} style={{
                 width: '25%',
                 marginLeft: '600px',
