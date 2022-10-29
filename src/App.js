@@ -171,7 +171,6 @@ function App(props) {
             <Login />
           </Route>
         </Switch>
-
       </div>
     </Router>
   )

@@ -16,7 +16,7 @@ function TmpAfterReg(props){
         <div>
             <div>
             !שלום
-            <br/>
+            <br/><br/>
             הצעת מחיר נשלחה לכתובת המייל שהזנת ברישום
             </div>
             <div>
