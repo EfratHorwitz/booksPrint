@@ -5,6 +5,9 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 
 import image1 from '../assets/1.png';
+import image29 from '../assets/29.png';
+import image34 from '../assets/34.png';
+import image35 from '../assets/29.png';
 
 function Home() {
     let history = useHistory();
@@ -13,11 +16,11 @@ function Home() {
         history.push("/managerScreen");
     }
     function getBid() {
-        history.push("/printOptions");
+        history.push("/userScreenStaples");
     }
     return (
         <div>
-            <img src={image1} style={{
+            <img src={image34} style={{
                 width: '75%',
                 marginLeft: '200px'
             }} onClick={getBid} />

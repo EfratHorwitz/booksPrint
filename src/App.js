@@ -204,7 +204,7 @@ function App(props) {
           </Route>
         </Switch>
         <div style={{display:'flex',justifyContent:'space-around', alignItems:'center'}}>
-          <a href="http://localhost:3000/userProfile" >להתחברות</a><br />
+          <a href="http://localhost:3000/login" >להתחברות</a><br />
           <a href="http://localhost:3000/userProfile" style={{ display: token ? "inline-block" : "none" }} >הפרופיל שלי</a><br />
           <a href="http://localhost:3000/" style={{ display: token ? "inline-block" : "none" }}>ליציאה</a><br />
           <a href="http://localhost:3000/myOrders" >ההזמנות שלי</a><br />
