@@ -20,12 +20,12 @@ function PrintOptions(props) {
         history.push("/userScreenSoft");
     }
     function hard() {
-        debugger;
+         ;
         props.saveBookDetails({bookType: "hard"})
         history.push("/userScreenHard");
     }
     function staples() {
-        debugger;
+         ;
         props.saveBookDetails({bookType: "staples"})
         history.push("/userScreenStaples");
     }

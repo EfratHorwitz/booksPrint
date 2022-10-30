@@ -15,7 +15,7 @@ function Trial() {
       // Update the state
     //   setState({ selectedFile: event.target.files[0] });
       setSelectedFile(event.target.files[0])
-    debugger
+     
     };
     
     // On file upload (click the upload button)

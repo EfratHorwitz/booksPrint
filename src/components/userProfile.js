@@ -7,11 +7,11 @@ import { useEffect } from "react";
 
 function UserProfile(props){
 
-    // debugger;
+    //  ;
     // const [showOrders, serShowOrders] = useState(false);
-    // debugger;
+    //  ;
     // const [showProposals, setShowProposals] = useState(false);
-    // debugger;
+    //  ;
 
     // // useEffect(()=>{
 
@@ -22,9 +22,9 @@ function UserProfile(props){
     // },[showProposals])
 
     // function showOrdersFunc(){
-    //     debugger;
+    //      ;
     //     serShowOrders(true);
-    //     debugger;
+    //      ;
     // }
     // function showProposalsFunc(){
     //     setShowProposals(true);

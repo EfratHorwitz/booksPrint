@@ -9,7 +9,7 @@ function Login() {
     const [existingUser, setExistingUser] = useState({});
 
     function login(){
-        debugger;
+         ;
         axios.get(`http://localhost:4000/user/${existingUser.username}/${existingUser.password}`)
         .then((res)=>{saveUserDetails(res.data); console.log(res.data);
             localStorage.setItem("userid", res.data._id)

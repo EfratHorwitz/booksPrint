@@ -10,10 +10,10 @@ import {useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 function CompleteOrder(props) {
-// debugger;
+//  ;
     const [orderToInsert, setOrderToInsert] = useState();
     const [userToUpdate, setUserToUpdate] = useState();
-    // debugger;
+    //  ;
     let history = useHistory();
 
     function finishedOrder() {
@@ -26,7 +26,7 @@ function CompleteOrder(props) {
         // if(bookid){
         //     props.saveBookDetails('')
         // }
-        // debugger;
+        //  ;
         setOrderToInsert({            
             bookId: localStorage.getItem('bookId'),
             userId: localStorage.getItem('userid'),
@@ -34,21 +34,21 @@ function CompleteOrder(props) {
             orderStatus: "real!!!!",
             orderPrice: props.currentBook.price
         })
-        // debugger
+        //  
         // setUserToUpdate(props.currentUser)
-        // debugger;
+        //  ;
     }, [])
-debugger;
+ ;
     let curId = props.currentUser._id;
-    debugger;
+     ;
 
     function postOrder(){
-        debugger;
+         ;
         let newOrders = props.currentUser.orders;
-        debugger
+         
         newOrders.push(orderToInsert);
         props.currentUser.orders = newOrders;
-        debugger;
+         ;
         // let newUser = {
         //     fullname: props.currentUser.fullname,
         //     username: props.currentUser.username,
@@ -80,7 +80,7 @@ debugger;
     // //localStorage.setItem('token', JSON.stringify(res.data.token))
     // })
     // .catch((err) => { console.log("error: ", err) });
-    // debugger;
+    //  ;
 
     return (
         

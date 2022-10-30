@@ -12,7 +12,7 @@ function MyProposals(props){
     const [toDateRequired, setToDateRequired] = useState({});
     
     function getMyProposals() {
-        debugger;
+         ;
         let curUId = localStorage.getItem("userid");
         let queryString = "";
         
@@ -53,7 +53,7 @@ function MyProposals(props){
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     // value={props.dataList[0]?.name}
-                    // onChange={(e) => {debugger;props.saveBookDetails({ [props.descStr] : e.target.value })}}
+                    // onChange={(e) => { ;props.saveBookDetails({ [props.descStr] : e.target.value })}}
                     onChange={(e) => {saveSelectedBook(e.target.value)}}
                     label="Age"
                 >

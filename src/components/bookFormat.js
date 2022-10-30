@@ -10,7 +10,7 @@ function BookFormat(){
     const[formatTypes, setFormatTypes] = useState([]);
 
     function getFormatTypes(){
-        // debugger
+        //  
         axios.get("http://localhost:4000/formattypes")
         .then(res => {setFormatTypes(res.data)}) 
         // .then(res => console.log("getFormatTypes succeeded",res))

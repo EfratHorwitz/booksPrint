@@ -24,7 +24,7 @@ function UserScreenHard(props) {
     // const [bookState, setbookState] = useState({});
     /*
     function loginNewUser(user){ //no need for this "user"
-        debugger;
+         ;
         axios.post("http://localhost:4000/user", userToInsert)
       .then((res)=> {
         props.saveUserDetails(res.data.user); 
@@ -32,13 +32,13 @@ function UserScreenHard(props) {
          console.log(res.data.user); localStorage.setItem('token', JSON.stringify(res.data.token)) })
       .then(()=>{registration();})
       .catch((err) => { console.log("error: ", err) });
-      debugger;
+       ;
     }
     */
 
 
     function postBook(newBook) {
-        debugger;
+         ;
         axios.post("http://localhost:4000/book", newBook)
             .then((res) => { props.saveBookDetails(res.data); localStorage.setItem('bookId', res.data._id); })
             // .then((res)=>{localStorage.setItem('bookId', res.data._id)})
@@ -46,14 +46,14 @@ function UserScreenHard(props) {
     }
 
     // useEffect(()=>{
-    //     debugger;
+    //      ;
     //     setbookState(props.book);
-    //     debugger;
+    //      ;
     //     console.log("book", bookState);
     // }, [])
 
     function endChoose() {
-        debugger;
+         ;
         let newBook = props.book;
         newBook.userId = localStorage.getItem("userid");
         postBook(newBook);
@@ -87,7 +87,7 @@ function UserScreenHard(props) {
         let grm = 0;
         let tonCost = 0;
 
-        debugger;
+         ;
 
         switch (String(props.book.size)) {
             case '24*35':
@@ -109,7 +109,7 @@ function UserScreenHard(props) {
                 format2 = 64;
                 break;
         }
-        // debugger
+        //  
         // if(props.book.size === "24*35" || props.book.size === "22*31" || props.book.size === "21*28"){
         //     format1 = 8;
         //     format2 = 16;
@@ -121,9 +121,9 @@ function UserScreenHard(props) {
         //     format2 = 64;
         // }
 
-        debugger;
+         ;
         luchotNum = (props.book.pagesNum) / format1;
-        debugger;
+         ;
         gilyonotNum = (props.book.pagesNum) / format2;
 
         switch (String(props.book.size)) {
@@ -453,7 +453,7 @@ function UserScreenHard(props) {
         //חישוב כללי
 
         totalSum = luchot + print + paper + dekel + kat + line;
-        debugger;
+         ;
         return totalSum;
     }
 
@@ -492,7 +492,7 @@ function UserScreenHard(props) {
 }
 
 const mapStateToProps = (state) => {
-    debugger
+     
     return {
         book: state.book
     };

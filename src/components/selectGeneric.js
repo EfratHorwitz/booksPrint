@@ -11,9 +11,9 @@ function SelectGeneric(props){
 
     useEffect(()=>{
         attribute = props.descStr;
-        debugger;
+         ;
         title = props.myTitle;
-        debugger;
+         ;
     },[]);
 
     return (

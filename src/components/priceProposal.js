@@ -30,7 +30,7 @@ function PriceProposal(props) {
         let grm = 0;
         let tonCost = 0;
 
-        debugger;
+         ;
         switch(props.book.size) {
             case ('24*35' || '22*31' || '21*28' ):
                 format1 = 8;
@@ -348,7 +348,7 @@ function PriceProposal(props) {
         }
 
         //חישוב כללי
-debugger;
+ ;
         totalSum = luchot + print + paper + dekel + kat + line;
 
         // let totalSum = 0;
@@ -367,7 +367,7 @@ debugger;
         // let format2 = 0;
         // let grm = 0;
         // let tonCost = 0;
-debugger;
+ ;
         setTotalSumState(totalSum)
         return;
     }
@@ -398,7 +398,7 @@ debugger;
     //     let grm = 0;
     //     let tonCost = 0;
 
-    //     debugger;
+    //      ;
     //     switch(orderEx.size) {
     //         case ('24*35' || '22*31' || '21*28' ):
     //             format1 = 8;
@@ -716,7 +716,7 @@ debugger;
     //     }
 
     //     //חישוב כללי
-    // debugger;
+    //  ;
     //     totalSum = luchot + print + paper + dekel + kat + line;
 
     //     // let totalSum = 0;
@@ -735,7 +735,7 @@ debugger;
     //     // let format2 = 0;
     //     // let grm = 0;
     //     // let tonCost = 0;
-    // debugger;
+    //  ;
     //     setTotalSumState(totalSum)
     //     return;
     // }
@@ -749,7 +749,7 @@ debugger;
     )
 }
 
-const mapStateToProps = (state) => {debugger
+const mapStateToProps = (state) => { 
     return {    
         book: state.book
         

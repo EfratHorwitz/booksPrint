@@ -13,12 +13,12 @@ function PaperType() {
         axios.get("http://localhost:4000/papertypes")
         // .then(res => {bindingTypes = res.data}) 
         .then(res => {setPaperTypes(res.data)})
-        // .then(()=>{console.log("paperType"); debugger;})
+        // .then(()=>{console.log("paperType");  ;})
         .catch(err => { console.log("error:" , err)})
     }
 
     useEffect(()=>{
-        debugger;
+         ;
         getPaperTypes()        
     }, []);
 

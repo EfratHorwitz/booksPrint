@@ -13,7 +13,7 @@ function SubApp(props){
     let history = useHistory();
 
     function getUserByToken(token) {
-        debugger;
+         ;
         axios.post("http://localhost:4000/user/verify", {
           token: token
         })
@@ -27,7 +27,7 @@ function SubApp(props){
       }
 
     useEffect(() => {
-        debugger;
+         ;
         // let tok = localStorage.getItem('token');
         // ()=>{tok?history.push("/login"):history.push("/registration")}
         if (localStorage.getItem('token')) {

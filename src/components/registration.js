@@ -24,7 +24,7 @@ function Registration(props) {
 
     useEffect(() => {
         setStam({ username: "redux@redux", })
-        debugger;
+         ;
     }, [])
 
     // const [tmpOrder, setTmpOrder] = useState();
@@ -43,20 +43,20 @@ function Registration(props) {
     }
 
     function loginNewUser(user){ //no need for this "user"
-        debugger;
+         ;
         axios.post("http://localhost:4000/user", userToInsert)
     //   .then((res) => res.json())
-    //   .then((res) => {debugger; saveUserDetails(res.data)})
+    //   .then((res) => { ; saveUserDetails(res.data)})
       .then((res)=> {
         props.saveUserDetails(res.data.user); 
         props.saveTokenDetails({token: JSON.stringify(res.data.token)});
          console.log(res.data.user); localStorage.setItem('token', res.data.token) })
       .then(()=>{registration();})
     // .then((res)=> {console.log("loginNewUser", res.data)})
-    //   .then((res)=> {debugger; console.log(res.data.token)})
-    //   .then((res)=> {debugger; localStorage.setItem('token', JSON.stringify(res.data.token))})
+    //   .then((res)=> { ; console.log(res.data.token)})
+    //   .then((res)=> { ; localStorage.setItem('token', JSON.stringify(res.data.token))})
       .catch((err) => { console.log("error: ", err) });
-      debugger;
+       ;
     }
     // localStorage.setItem('itemsArray', JSON.stringify(oldItems));
     

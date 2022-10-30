@@ -47,7 +47,7 @@ function App(props) {
   // }
 
   // function getUserByToken(token) {
-  //   debugger;
+  //    ;
   //   axios.post("http://localhost:4000/user/verify", {
   //     token: token
   //   })
@@ -68,7 +68,7 @@ function App(props) {
     //   .catch((err) => { console.log("error: ", err) });
     // localStorage.setItem('language', 'JavaScript');
     // setToken(localStorage.getItem(("token")));
-    // debugger;
+    //  ;
     // let tok = localStorage.getItem('token');
     // // ()=>{tok?history.push("/login"):history.push("/registration")}
     // if (tok) {
@@ -80,7 +80,7 @@ function App(props) {
 
   
 //   function getUserByToken(token) {
-//     debugger;
+//      ;
 //     axios.post("http://localhost:4000/user/verify", {
 //       token: token
 //     })
@@ -94,7 +94,7 @@ function App(props) {
 //   }
 
 // useEffect(() => {
-//     debugger;
+//      ;
 //     // let tok = localStorage.getItem('token');
 //     // ()=>{tok?history.push("/login"):history.push("/registration")}
 //     if (localStorage.getItem('token')) {
@@ -106,13 +106,13 @@ function App(props) {
 //   }, [])
 
   function logout() {
-    debugger;
+     ;
     localStorage.removeItem("token");
     localStorage.removeItem("bookId");
     localStorage.removeItem("userid");
     // setToken(null);
     props.saveTokenDetails(null);
-    debugger;
+     ;
   }
 
   console.log(props.token ? "props.token true" : "props.token false");

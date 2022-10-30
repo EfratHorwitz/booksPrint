@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import axios from 'axios';
+import Orders from './orders';
+import moment from 'moment/moment';
+
+
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 // import TextField from '@mui/material/TextField';
 
@@ -12,8 +16,12 @@ function ManagerScreen() {
     const [filteredOrders, setFilteredOrders] = useState([]);
     // const []
 
+    useEffect(() => {
+        getOrders();
+    }, [])
+
     function getOrders() {
-        debugger;
+        ;
         // let curUId = localStorage.getItem("userid");
         let queryString = "";
         if (statusRequired) {
@@ -32,7 +40,6 @@ function ManagerScreen() {
             .then(res => { setFilteredOrders(res.data) })
             // .then(()=>{console.log("conslog", myOrders)})
             .catch(err => { console.log("error:", err) })
-
     }
 
     return (
@@ -58,7 +65,20 @@ function ManagerScreen() {
             <input type='date' onChange={(e) => setFromDateRequired(e.target.value)} />
             <input type='date' onChange={(e) => setToDateRequired(e.target.value)} />
             <button type='button' onClick={getOrders} >לסינון</button>
-        </div>
+
+            {filteredOrders.length > 0 ?
+                <Orders showUser={true} orders={filteredOrders.map(o => {
+                    if (o.orderDate) {
+                        let d = new Date(o.orderDate);
+                        o.orderDateInString = moment(d).format('DD/MM/YYYY');
+                    }
+                    return o;
+                })
+                }></Orders> :
+                <p>אין נתונים להצגה</p>
+            }
+        </div >
+
 
     )
 

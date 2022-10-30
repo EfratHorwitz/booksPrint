@@ -10,7 +10,7 @@ function BookSize() {
     const[sizeOptions, setSizeOptions] = useState([]);
     
     function getSizeOptions(){
-        // debugger
+        //  
         axios.get("http://localhost:4000/sizeoptions")
         .then(res => {setSizeOptions(res.data)}) 
         // .then(res => console.log("getSizeTypes succeeded",res.data))
