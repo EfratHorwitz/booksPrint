@@ -86,7 +86,6 @@ function Registration(props) {
             <img src={image21} style={{
                 width: '75%',
                 marginLeft: '200px',
-                // marginTop: '20px'
             }} />
             
             {/* <img src={image22} style={{

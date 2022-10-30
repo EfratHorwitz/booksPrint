@@ -35,8 +35,6 @@ function TmpAfterReg(props) {
             <br />
             <img src={image25} style={{
                 width: '65%',
-                // marginLeft: '110px',
-                // marginTop: '20px'
             }} />
         </>
 

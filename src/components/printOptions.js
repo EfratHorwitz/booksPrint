@@ -36,21 +36,21 @@ function PrintOptions(props) {
 
             <img src={image7} style={{
                 width: '75%',
-                marginLeft: '200px',
+                marginLeft: '150px',
                 // marginTop: '20px'
             }} />
             <div style={{display:'flex', justifyContent:'center',marginTop: '60px'}}>
             <img src={image2} style={{
                 width: '10%',
-                marginLeft: '200px'
+                marginLeft: '100px'
             }} onClick={soft}/>
             <img src={image4} style={{
                 width: '10%',
-                marginLeft: '200px'
+                marginLeft: '100px'
             }} onClick={hard}/>
             <img src={image6} style={{
                 width: '10%',
-                marginLeft: '200px'
+                marginLeft: '100px'
             }}onClick={staples} /> 
             </div>
             <div style={{display:'flex', justifyContent:'space-between', }}>
